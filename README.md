@@ -32,6 +32,8 @@ Para tenerlo en local o por otra parte entrar a la web directamente.
 
 En la parte del repositorio lateral, esta la URL directa a la pagina web directamente
 
+URL = [Ir a la web](https://d1se0.github.io/sql-learning/)
+
 ---
 
 ## ✨ Contribuciones
