@@ -83,3 +83,8 @@ cd tools && node extract.mjs && node test-db.mjs
 ## 📄 Licencia
 
 MIT — ver historial del repo.
+
+## 🧭 Taxonomía y despliegue
+
+- El sidebar replica **exactamente** la estructura del cheatsheet original: **Query Basics (6) · Query Filtering (16) · Functions (25, con Aggregate / Window / String / Numeric › Math / Date) · Tables (13)**.
+- Despliegue de la v2: **Actions → "Deploy website a GitHub Pages" → Run workflow** con branch `v2`. El workflow de esta rama es solo `workflow_dispatch` para no pisar el sitio de producción (main).
