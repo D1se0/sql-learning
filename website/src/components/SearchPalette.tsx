@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { CornerDownLeft, Database, Search, Terminal } from 'lucide-react'
 import { navigate, type Route } from '../lib/store'
+import { useI18n } from '../i18n/i18n'
 
 export type SearchItem = {
   id: string
@@ -21,6 +22,7 @@ type Props = {
 }
 
 export function SearchPalette({ open, onClose, items }: Props) {
+  const { t } = useI18n()
   const [q, setQ] = useState('')
   const [sel, setSel] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -107,7 +109,7 @@ export function SearchPalette({ open, onClose, items }: Props) {
                   if (e.key === 'Enter' && results[sel]) run(results[sel])
                   if (e.key === 'Escape') onClose()
                 }}
-                placeholder="Buscar temas, querys y comandos SQL… (LIKE, GROUP BY, COUNT()…)"
+                placeholder={t('header.searchPlaceholder')}
                 className="flex-1 bg-transparent outline-none font-mono text-sm text-ink placeholder:text-grey/50"
               />
               <kbd className="kbd">esc</kbd>
@@ -115,7 +117,7 @@ export function SearchPalette({ open, onClose, items }: Props) {
             <div ref={listRef} className="max-h-[46vh] overflow-y-auto p-2">
               {results.length === 0 && (
                 <div className="px-4 py-8 text-center text-grey text-sm">
-                  Sin resultados para <span className="text-accent font-mono">{q}</span>
+                  {t('search.noResults')} <span className="text-accent font-mono">{q}</span>
                 </div>
               )}
               {results.map((it, i) => (
@@ -142,9 +144,9 @@ export function SearchPalette({ open, onClose, items }: Props) {
               ))}
             </div>
             <div className="flex items-center gap-4 px-4 py-2.5 border-t border-edge font-mono text-[10px] text-grey/70">
-              <span className="flex items-center gap-1"><kbd className="kbd !px-1.5 !py-0.5">↑↓</kbd> navegar</span>
-              <span className="flex items-center gap-1"><kbd className="kbd !px-1.5 !py-0.5">↵</kbd> abrir</span>
-              <span className="ml-auto">{results.length} resultados</span>
+              <span className="flex items-center gap-1"><kbd className="kbd !px-1.5 !py-0.5">↑↓</kbd> {t('search.navigate')}</span>
+              <span className="flex items-center gap-1"><kbd className="kbd !px-1.5 !py-0.5">↵</kbd> {t('search.openKey')}</span>
+              <span className="ml-auto">{results.length} {t('search.results')}</span>
             </div>
           </motion.div>
         </motion.div>

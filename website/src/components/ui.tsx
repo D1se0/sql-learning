@@ -46,7 +46,7 @@ function highlightSql(code: string): string {
   return html
 }
 
-export function SqlCode({ code, onRun }: { code: string; onRun?: (sql: string) => void }) {
+export function SqlCode({ code, onRun, title }: { code: string; onRun?: (sql: string) => void; title?: string }) {
   const [copied, setCopied] = useState(false)
   const copy = async () => {
     try {
@@ -60,7 +60,7 @@ export function SqlCode({ code, onRun }: { code: string; onRun?: (sql: string) =
       {onRun && (
         <button
           onClick={() => onRun(code)}
-          title="Ejecutar en el playground"
+          title={title ?? 'Run'}
           className="absolute top-2 right-11 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md border border-edge bg-base/80 text-green-400 hover:border-green-400/50"
         >
           ▶
@@ -68,7 +68,7 @@ export function SqlCode({ code, onRun }: { code: string; onRun?: (sql: string) =
       )}
       <button
         onClick={copy}
-        title="Copiar"
+        title="Copy"
         className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md border border-edge bg-base/80 text-grey hover:text-accent hover:border-accent/50"
       >
         {copied ? '✓' : <Copy className="w-3.5 h-3.5" />}
@@ -120,16 +120,6 @@ export function ResultTable({ columns, rows, maxH = 'max-h-96' }: {
 /* ---------- small inline html renderer (cheatsheet <p>) ---------- */
 export function P({ html }: { html: string }) {
   return <p className="text-grey leading-relaxed" dangerouslySetInnerHTML={{ __html: html }} />
-}
-
-/* ---------- terminal-style prompt chip ---------- */
-export function PromptChip({ phrases }: { phrases: string[] }) {
-  return (
-    <span className="font-mono text-xs text-grey">
-      sql@learning:~$ <span className="text-ink">{phrases[0]}</span>
-      <span className="text-accent animate-blink">▊</span>
-    </span>
-  )
 }
 
 export { runQuery }

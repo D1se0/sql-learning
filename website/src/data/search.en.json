@@ -1,0 +1,543 @@
+[
+ {
+  "id": "abs",
+  "title": "ABS()",
+  "cat": "Functions",
+  "sub": "Math",
+  "kws": []
+ },
+ {
+  "id": "aliases",
+  "title": "Aliases (AS)",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "alter-table",
+  "title": "ALTER TABLE",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "ALTER TABLE",
+   "modify table"
+  ]
+ },
+ {
+  "id": "any-all",
+  "title": "ANY / ALL",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "ANY",
+   "ALL",
+   "subquery"
+  ]
+ },
+ {
+  "id": "auto-increment",
+  "title": "AUTO INCREMENT",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "AUTO_INCREMENT",
+   "AUTOINCREMENT",
+   "id automatic"
+  ]
+ },
+ {
+  "id": "avg",
+  "title": "AVG()",
+  "cat": "Functions",
+  "sub": "Aggregate",
+  "kws": [
+   "AVG",
+   "average"
+  ]
+ },
+ {
+  "id": "between",
+  "title": "BETWEEN",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "BETWEEN",
+   "range"
+  ]
+ },
+ {
+  "id": "case",
+  "title": "CASE",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "CASE",
+   "WHEN",
+   "THEN",
+   "ELSE",
+   "conditional"
+  ]
+ },
+ {
+  "id": "ceil",
+  "title": "CEIL()",
+  "cat": "Functions",
+  "sub": "Numeric",
+  "kws": []
+ },
+ {
+  "id": "check",
+  "title": "CHECK",
+  "cat": "Tables",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "concat",
+  "title": "CONCAT()",
+  "cat": "Functions",
+  "sub": "String",
+  "kws": [
+   "CONCAT",
+   "concatenate"
+  ]
+ },
+ {
+  "id": "constraint",
+  "title": "CONSTRAINTS",
+  "cat": "Tables",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "count",
+  "title": "COUNT()",
+  "cat": "Functions",
+  "sub": "Aggregate",
+  "kws": [
+   "COUNT",
+   "count"
+  ]
+ },
+ {
+  "id": "create-table",
+  "title": "CREATE TABLE",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "CREATE TABLE",
+   "create table"
+  ]
+ },
+ {
+  "id": "current_timestamp",
+  "title": "CURRENT_TIMESTAMP",
+  "cat": "Functions",
+  "sub": "Date",
+  "kws": []
+ },
+ {
+  "id": "datatypes",
+  "title": "Data types",
+  "cat": "Tables",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "day",
+  "title": "DAY()",
+  "cat": "Functions",
+  "sub": "Date",
+  "kws": []
+ },
+ {
+  "id": "default",
+  "title": "DEFAULT",
+  "cat": "Tables",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "delete",
+  "title": "DELETE",
+  "cat": "Query Basics",
+  "sub": "",
+  "kws": [
+   "DELETE FROM",
+   "delete rows"
+  ]
+ },
+ {
+  "id": "distinct",
+  "title": "DISTINCT",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "DISTINCT",
+   "unique"
+  ]
+ },
+ {
+  "id": "drop-table",
+  "title": "DROP TABLE",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "DROP TABLE",
+   "delete table"
+  ]
+ },
+ {
+  "id": "exists",
+  "title": "EXISTS",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "EXISTS",
+   "subquery"
+  ]
+ },
+ {
+  "id": "first-value",
+  "title": "FIRST_VALUE()",
+  "cat": "Functions",
+  "sub": "Window",
+  "kws": [
+   "FIRST_VALUE",
+   "first value"
+  ]
+ },
+ {
+  "id": "floor",
+  "title": "FLOOR()",
+  "cat": "Functions",
+  "sub": "Numeric",
+  "kws": []
+ },
+ {
+  "id": "foreign-key",
+  "title": "FOREIGN KEY",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "FOREIGN KEY",
+   "foreign key"
+  ]
+ },
+ {
+  "id": "group-by",
+  "title": "GROUP BY",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "GROUP BY",
+   "group"
+  ]
+ },
+ {
+  "id": "having",
+  "title": "HAVING",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "HAVING",
+   "group filter"
+  ]
+ },
+ {
+  "id": "ifnull",
+  "title": "IFNULL()",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "in",
+  "title": "IN",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "IN",
+   "list values"
+  ]
+ },
+ {
+  "id": "index-sql",
+  "title": "INDEX",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "INDEX",
+   "index",
+   "performance"
+  ]
+ },
+ {
+  "id": "insert",
+  "title": "INSERT",
+  "cat": "Query Basics",
+  "sub": "",
+  "kws": [
+   "INSERT INTO",
+   "VALUES",
+   "add rows"
+  ]
+ },
+ {
+  "id": "join",
+  "title": "JOIN",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "JOIN",
+   "INNER",
+   "LEFT",
+   "ON",
+   "join tables"
+  ]
+ },
+ {
+  "id": "lag",
+  "title": "LAG()",
+  "cat": "Functions",
+  "sub": "Window",
+  "kws": [
+   "LAG",
+   "previous row"
+  ]
+ },
+ {
+  "id": "last-value",
+  "title": "LAST_VALUE()",
+  "cat": "Functions",
+  "sub": "Window",
+  "kws": [
+   "LAST_VALUE",
+   "last value"
+  ]
+ },
+ {
+  "id": "lead",
+  "title": "LEAD()",
+  "cat": "Functions",
+  "sub": "Window",
+  "kws": [
+   "LEAD",
+   "next row"
+  ]
+ },
+ {
+  "id": "len",
+  "title": "LEN()",
+  "cat": "Functions",
+  "sub": "String",
+  "kws": []
+ },
+ {
+  "id": "like",
+  "title": "LIKE",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "LIKE",
+   "%",
+   "_",
+   "pattern"
+  ]
+ },
+ {
+  "id": "lower",
+  "title": "LOWER()",
+  "cat": "Functions",
+  "sub": "String",
+  "kws": []
+ },
+ {
+  "id": "max",
+  "title": "MAX()",
+  "cat": "Functions",
+  "sub": "Aggregate",
+  "kws": [
+   "MAX",
+   "maximum"
+  ]
+ },
+ {
+  "id": "min",
+  "title": "MIN()",
+  "cat": "Functions",
+  "sub": "Aggregate",
+  "kws": [
+   "MIN",
+   "minimum"
+  ]
+ },
+ {
+  "id": "month",
+  "title": "MONTH()",
+  "cat": "Functions",
+  "sub": "Date",
+  "kws": []
+ },
+ {
+  "id": "not-null",
+  "title": "NOT NULL",
+  "cat": "Tables",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "null-values",
+  "title": "Values NULL",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "operators",
+  "title": "Operators",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "order-by",
+  "title": "ORDER BY",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "ORDER BY",
+   "ASC",
+   "DESC",
+   "order"
+  ]
+ },
+ {
+  "id": "power",
+  "title": "POWER()",
+  "cat": "Functions",
+  "sub": "Math",
+  "kws": []
+ },
+ {
+  "id": "primary-key",
+  "title": "PRIMARY KEY",
+  "cat": "Tables",
+  "sub": "",
+  "kws": [
+   "PRIMARY KEY",
+   "primary key"
+  ]
+ },
+ {
+  "id": "rand",
+  "title": "RAND()",
+  "cat": "Functions",
+  "sub": "Numeric",
+  "kws": []
+ },
+ {
+  "id": "round",
+  "title": "ROUND()",
+  "cat": "Functions",
+  "sub": "Numeric",
+  "kws": []
+ },
+ {
+  "id": "select",
+  "title": "SELECT",
+  "cat": "Query Basics",
+  "sub": "",
+  "kws": [
+   "SELECT",
+   "FROM",
+   "result-set",
+   "consult"
+  ]
+ },
+ {
+  "id": "sqrt",
+  "title": "SQRT()",
+  "cat": "Functions",
+  "sub": "Math",
+  "kws": []
+ },
+ {
+  "id": "start",
+  "title": "Introduction to SQL",
+  "cat": "Query Basics",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "sum",
+  "title": "SUM()",
+  "cat": "Functions",
+  "sub": "Aggregate",
+  "kws": [
+   "SUM",
+   "addition"
+  ]
+ },
+ {
+  "id": "union",
+  "title": "UNION",
+  "cat": "Query Filtering",
+  "sub": "",
+  "kws": [
+   "UNION",
+   "UNION ALL",
+   "combine"
+  ]
+ },
+ {
+  "id": "unique",
+  "title": "UNIQUE",
+  "cat": "Tables",
+  "sub": "",
+  "kws": []
+ },
+ {
+  "id": "update",
+  "title": "UPDATE",
+  "cat": "Query Basics",
+  "sub": "",
+  "kws": [
+   "UPDATE",
+   "SET",
+   "modify"
+  ]
+ },
+ {
+  "id": "upper",
+  "title": "UPPER()",
+  "cat": "Functions",
+  "sub": "String",
+  "kws": []
+ },
+ {
+  "id": "where",
+  "title": "WHERE",
+  "cat": "Query Basics",
+  "sub": "",
+  "kws": [
+   "WHERE",
+   "filter",
+   "condition"
+  ]
+ },
+ {
+  "id": "window-function-basic",
+  "title": "Window Functions",
+  "cat": "Functions",
+  "sub": "Window",
+  "kws": []
+ },
+ {
+  "id": "year",
+  "title": "YEAR()",
+  "cat": "Functions",
+  "sub": "Date",
+  "kws": []
+ }
+]

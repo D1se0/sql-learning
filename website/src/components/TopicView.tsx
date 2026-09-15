@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Play } from 'lucide-react'
-import { TOPICS } from '../data'
-import { markVisited, navigate } from '../lib/store'
-import { setPendingSql } from '../lib/store'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { markVisited, navigate, setPendingSql } from '../lib/store'
+import { useI18n } from '../i18n/i18n'
 import { Reveal, SqlCode, P } from './ui'
 
 export function TopicView({ id }: { id: string }) {
-  const idx = TOPICS.findIndex(t => t.id === id)
-  const topic = TOPICS[idx]
+  const { t, topics } = useI18n()
+  const idx = topics.findIndex(tp => tp.id === id)
+  const topic = topics[idx]
 
   useEffect(() => {
     if (topic) markVisited(topic.id)
@@ -18,16 +18,16 @@ export function TopicView({ id }: { id: string }) {
   if (!topic) {
     return (
       <div className="max-w-4xl mx-auto px-6 py-32 text-center">
-        <div className="font-mono text-grey">Tema no encontrado: <span className="text-accent">{id}</span></div>
+        <div className="font-mono text-grey">{t('topic.notFound')} <span className="text-accent">{id}</span></div>
         <button onClick={() => navigate({ view: 'home' })} className="mt-4 font-mono text-sm text-accent hover:underline">
-          ← volver al inicio
+          {t('topic.backHome')}
         </button>
       </div>
     )
   }
 
-  const prev = TOPICS[idx - 1]
-  const next = TOPICS[idx + 1]
+  const prev = topics[idx - 1]
+  const next = topics[idx + 1]
   const goPlay = (sql: string) => {
     setPendingSql(sql)
     navigate({ view: 'playground' })
@@ -37,7 +37,7 @@ export function TopicView({ id }: { id: string }) {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <Reveal>
         <button onClick={() => navigate({ view: 'home' })} className="inline-flex items-center gap-1.5 font-mono text-xs text-grey hover:text-accent transition-colors mb-6">
-          <ArrowLeft className="w-3.5 h-3.5" /> cheatsheet
+          <ArrowLeft className="w-3.5 h-3.5" /> {t('topic.back')}
         </button>
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <p className="section-tag mb-2">{topic.sub ? `// ${topic.cat} › ${topic.sub}` : `// ${topic.cat}`}</p>
@@ -67,7 +67,7 @@ export function TopicView({ id }: { id: string }) {
               ))}
             </ul>
           )
-          if (b.t === 'code') return <SqlCode key={i} code={b.text} onRun={goPlay} />
+          if (b.t === 'code') return <SqlCode key={i} code={b.text} onRun={goPlay} title={t('topic.run.title')} />
           if (b.t === 'img') return (
             <img key={i} src={b.src} alt={b.alt} className="rounded-xl border border-edge my-4 max-w-full" />
           )
@@ -79,13 +79,13 @@ export function TopicView({ id }: { id: string }) {
       <div className="mt-14 grid grid-cols-2 gap-4">
         {prev ? (
           <button onClick={() => navigate({ view: 'topic', id: prev.id })} className="card p-4 text-left group">
-            <div className="font-mono text-[10px] text-grey/60 flex items-center gap-1"><ArrowLeft className="w-3 h-3" /> anterior</div>
+            <div className="font-mono text-[10px] text-grey/60 flex items-center gap-1"><ArrowLeft className="w-3 h-3" /> {t('topic.prev')}</div>
             <div className="font-mono text-sm text-ink group-hover:text-accent transition-colors mt-1">{prev.title}</div>
           </button>
         ) : <div />}
         {next && (
           <button onClick={() => navigate({ view: 'topic', id: next.id })} className="card p-4 text-right group">
-            <div className="font-mono text-[10px] text-grey/60">siguiente <ArrowRight className="w-3 h-3 inline" /></div>
+            <div className="font-mono text-[10px] text-grey/60">{t('topic.next')} <ArrowRight className="w-3 h-3 inline" /></div>
             <div className="font-mono text-sm text-ink group-hover:text-accent transition-colors mt-1">{next.title}</div>
           </button>
         )}

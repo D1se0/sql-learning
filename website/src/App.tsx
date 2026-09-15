@@ -1,18 +1,18 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  ChevronRight, Database, Github, LayoutDashboard, Menu, Search,
-  Sparkles, Table2, Terminal, X
+  ChevronRight, Github, Menu, Search, Sparkles, Table2, Terminal
 } from 'lucide-react'
-import { SEARCH, TOPICS, type Topic } from './data'
-import { navigate, useRoute, consumePendingSql, type Route } from './lib/store'
+import { navigate, useRoute, type Route } from './lib/store'
 import { initEngine } from './lib/sqlEngine'
+import { useI18n, type Topic } from './i18n/i18n'
 import { SearchPalette, type SearchItem } from './components/SearchPalette'
 import { Home } from './components/Home'
 import { TopicView } from './components/TopicView'
 import { Playground } from './components/Playground'
 import { Challenges } from './components/Challenges'
 import { SchemaView } from './components/SchemaView'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
 
 /* ---------- enlaces del sidebar ---------- */
 function TopicLink({ t, route, go }: { t: Topic; route: Route; go: (r: Route) => void }) {
@@ -77,36 +77,40 @@ function SubGroup({ label, topics, route, go, nested = [] }: {
         )}
       </AnimatePresence>
     </div>
-  )}
+  )
+}
 
-/* ---------- índice de búsqueda global ---------- */
-function buildSearchIndex(): SearchItem[] {
-  const items: SearchItem[] = []
-  for (const t of TOPICS) {
-    items.push({ id: t.id, title: t.title, cat: t.cat, sub: t.sub, kws: [], route: { view: 'topic', id: t.id }, icon: 'topic' })
-  }
-  for (const s of SEARCH) {
-    if (!s.kws.length) continue
-    items.push({
-      id: s.id,
-      title: s.kws[0],
-      cat: s.cat,
-      sub: s.sub,
-      kws: s.kws,
-      route: { view: 'topic', id: s.id },
-      icon: 'cmd',
-      subtitle: s.kws.slice(1).join(' · ')
-    })
-  }
-  items.push({ id: 'playground', title: 'Playground SQL', cat: 'Herramientas', sub: '', kws: ['playground', 'practicar', 'ejecutar', 'sqlite'], route: { view: 'playground' }, icon: 'db' })
-  items.push({ id: 'challenges', title: 'Retos SQL', cat: 'Herramientas', sub: '', kws: ['retos', 'practicar', 'desafios', 'validar'], route: { view: 'challenges' }, icon: 'db' })
-  items.push({ id: 'schema', title: 'Esquema de la DB', cat: 'Herramientas', sub: '', kws: ['esquema', 'tablas', 'hospital', 'schema'], route: { view: 'schema' }, icon: 'db' })
-  return items
+/* ---------- índice de búsqueda global (i18n-aware) ---------- */
+function useSearchIndex(): SearchItem[] {
+  const { t, topics, search } = useI18n()
+  return useMemo(() => {
+    const items: SearchItem[] = []
+    for (const tp of topics) {
+      items.push({ id: tp.id, title: tp.title, cat: tp.cat, sub: tp.sub, kws: [], route: { view: 'topic', id: tp.id }, icon: 'topic' })
+    }
+    for (const s of search) {
+      if (!s.kws.length) continue
+      items.push({
+        id: s.id,
+        title: s.kws[0],
+        cat: s.cat,
+        sub: s.sub,
+        kws: s.kws,
+        route: { view: 'topic', id: s.id },
+        icon: 'cmd',
+        subtitle: s.kws.slice(1).join(' · ')
+      })
+    }
+    items.push({ id: 'playground', title: t('tool.title.playground'), cat: t('search.cat.tools'), sub: '', kws: t('search.kw.playground').split(', '), route: { view: 'playground' }, icon: 'db' })
+    items.push({ id: 'challenges', title: t('tool.title.challenges'), cat: t('search.cat.tools'), sub: '', kws: t('search.kw.challenges').split(', '), route: { view: 'challenges' }, icon: 'db' })
+    items.push({ id: 'schema', title: t('tool.title.schema'), cat: t('search.cat.tools'), sub: '', kws: t('search.kw.schema').split(', '), route: { view: 'schema' }, icon: 'db' })
+    return items
+  }, [t, topics, search])
 }
 
 /* ---------- estructura del sidebar ---------- */
 const CAT_ORDER = ['Query Basics', 'Query Filtering', 'Functions', 'Tables'] as const
-// orden de subgrupos de Functions + anidamiento (Math dentro de Numeric), como el sidebar original
+// orden de subgrupos de Functions + anidamiento (Math dentro de Numeric), como el original
 const SUB_ORDER = ['Aggregate', 'Window', 'String', 'Numeric', 'Date']
 
 function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
@@ -115,17 +119,18 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
   mobileOpen: boolean
   onCloseMobile: () => void
 }) {
+  const { t, topics: TOPICS } = useI18n()
   const groups = useMemo(() => {
-    const m = new Map<string, typeof TOPICS>()
-    for (const t of TOPICS) {
-      if (!m.has(t.cat)) m.set(t.cat, [])
-      m.get(t.cat)!.push(t)
+    const m = new Map<string, Topic[]>()
+    for (const tp of TOPICS) {
+      if (!m.has(tp.cat)) m.set(tp.cat, [])
+      m.get(tp.cat)!.push(tp)
     }
     return m
-  }, [])
+  }, [TOPICS])
 
-  const activeCat = route.view === 'topic' ? TOPICS.find(t => t.id === route.id)?.cat : null
-  const [openCats, setOpenCats] = useState<Set<string>>(new Set(activeCat ? [activeCat] : ['Básicas']))
+  const activeCat = route.view === 'topic' ? TOPICS.find(tp => tp.id === route.id)?.cat : null
+  const [openCats, setOpenCats] = useState<Set<string>>(new Set(activeCat ? [activeCat] : ['Query Basics']))
 
   useEffect(() => {
     if (activeCat) setOpenCats(s => new Set(s).add(activeCat))
@@ -149,11 +154,11 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
       {mobileOpen && <div className="fixed inset-0 bg-black/60 z-40 lg:hidden" onClick={onCloseMobile} />}
       <aside className={`fixed lg:sticky top-0 lg:top-16 left-0 z-40 h-screen lg:h-[calc(100vh-4rem)] w-72 shrink-0 bg-panel border-r border-edge overflow-y-auto transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-4">
-          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-grey/60 mb-3 px-1">herramientas</div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-grey/60 mb-3 px-1">{t('sidebar.tools')}</div>
           {[
-            { r: { view: 'playground' } as Route, icon: <Terminal className="w-4 h-4" />, label: 'Playground SQL' },
-            { r: { view: 'challenges' } as Route, icon: <Sparkles className="w-4 h-4" />, label: 'Retos' },
-            { r: { view: 'schema' } as Route, icon: <Table2 className="w-4 h-4" />, label: 'Esquema DB' }
+            { r: { view: 'playground' } as Route, icon: <Terminal className="w-4 h-4" />, label: t('tool.playground') },
+            { r: { view: 'challenges' } as Route, icon: <Sparkles className="w-4 h-4" />, label: t('tool.challenges') },
+            { r: { view: 'schema' } as Route, icon: <Table2 className="w-4 h-4" />, label: t('tool.schema') }
           ].map(item => {
             const active = route.view === item.r.view
             return (
@@ -169,16 +174,16 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
             )
           })}
 
-          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-grey/60 mt-5 mb-2 px-1">cheatsheet</div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-grey/60 mt-5 mb-2 px-1">{t('sidebar.cheatsheet')}</div>
           {CAT_ORDER.map(cat => {
             const topics = groups.get(cat) ?? []
             const open = openCats.has(cat)
             // subgrupos solo en Functions (Aggregate, Window, String, Numeric›Math, Date), como el original
-            const subgroups = new Map<string, typeof TOPICS>()
-            for (const t of topics) {
-              const s = cat === 'Functions' ? t.sub : ''
+            const subgroups = new Map<string, Topic[]>()
+            for (const tp of topics) {
+              const s = cat === 'Functions' ? tp.sub : ''
               if (!subgroups.has(s)) subgroups.set(s, [])
-              subgroups.get(s)!.push(t)
+              subgroups.get(s)!.push(tp)
             }
             const hasSubs = cat === 'Functions'
             return (
@@ -221,7 +226,7 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
                                 />
                               )
                             })
-                          : topics.map(t => <TopicLink key={t.id} t={t} route={route} go={go} />)}
+                          : topics.map(tp => <TopicLink key={tp.id} t={tp} route={route} go={go} />)}
                       </div>
                     </motion.div>
                   )}
@@ -238,10 +243,11 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
 /* ---------- app ---------- */
 export default function App() {
   const route = useRoute()
+  const { t, topics } = useI18n()
   const [searchOpen, setSearchOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [engineReady, setEngineReady] = useState(false)
-  const index = useMemo(buildSearchIndex, [])
+  const index = useSearchIndex()
 
   useEffect(() => {
     initEngine().then(() => setEngineReady(true))
@@ -285,18 +291,19 @@ export default function App() {
             className="ml-auto md:ml-6 flex-1 max-w-md flex items-center gap-2.5 px-3.5 py-2 rounded-lg border border-edge bg-card/60 hover:border-accent/40 transition-colors text-left"
           >
             <Search className="w-4 h-4 text-grey" />
-            <span className="font-mono text-xs text-grey/70 hidden sm:block">buscar querys, comandos, temas…</span>
+            <span className="font-mono text-xs text-grey/70 hidden sm:block">{t('header.search')}</span>
             <kbd className="kbd ml-auto hidden sm:inline-flex">Ctrl K</kbd>
           </button>
 
           <div className="ml-auto flex items-center gap-3">
             <span
               className={`hidden md:flex items-center gap-1.5 font-mono text-[10px] ${engineReady ? 'text-green-500' : 'text-grey/50'}`}
-              title="Motor SQLite (WASM) del playground"
+              title={t('header.sqliteTitle')}
             >
               <span className={`w-1.5 h-1.5 rounded-full ${engineReady ? 'bg-green-500 animate-pulse' : 'bg-grey/50'}`} />
-              sqlite ready
+              {t('header.sqliteReady')}
             </span>
+            <LanguageSwitcher />
             <a
               href="https://github.com/D1se0/sql-learning"
               target="_blank"
@@ -323,11 +330,11 @@ export default function App() {
             <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-xs text-grey">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                sql-learning v2.0 — React + SQLite WASM
+                {t('footer.version')}
               </span>
               <span>
-                hecho por <a href="https://github.com/D1se0" target="_blank" rel="noreferrer" className="text-accent hover:underline">D1se0</a> ·{' '}
-                <a href="https://github.com/D1se0/sql-learning" target="_blank" rel="noreferrer" className="hover:text-ink">repo</a>
+                {t('footer.madeBy')} <a href="https://github.com/D1se0" target="_blank" rel="noreferrer" className="text-accent hover:underline">D1se0</a> ·{' '}
+                <a href="https://github.com/D1se0/sql-learning" target="_blank" rel="noreferrer" className="hover:text-ink">{t('footer.repo')}</a>
               </span>
             </div>
           </footer>

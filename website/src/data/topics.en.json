@@ -1,39 +1,39 @@
 [
  {
   "id": "start",
-  "title": "Introducción a SQL",
+  "title": "Introduction to SQL",
   "cat": "Query Basics",
   "sub": "",
   "blocks": [
    {
     "t": "h1",
-    "text": "Bienvenido a SQL Cheatsheet"
+    "text": "Welcome to SQL Cheatsheet"
    },
    {
     "t": "p",
-    "html": "SQL (Structured Query Language) es un lenguaje estándar utilizado para interactuar con bases de datos relacionales. Permite crear, modificar y consultar datos de manera eficiente. Esta cheatsheet está diseñada para ayudarte a aprender y recordar las instrucciones más comunes de SQL."
+    "html": "SQL (Structured Query Language) is a standard language used to interact with relational databases. It allows you to create, modify and query data efficiently. This cheatsheet is designed to help you learn and remember the most common SQL instructions."
    },
    {
     "t": "h2",
-    "text": "Qué aprenderás aquí:"
+    "text": "What you will learn here:"
    },
    {
     "t": "ul",
     "items": [
-     "<strong>Query Basics:</strong> SELECT, INSERT, UPDATE, DELETE y WHERE.",
-     "<strong>Filtrado y orden:</strong> Operadores, ORDER BY, LIKE, IN, BETWEEN, GROUP BY y HAVING.",
-     "<strong>Funciones:</strong> Funciones agregadas (COUNT, SUM, AVG, MAX, MIN), de cadena, numéricas y de fecha.",
-     "<strong>Tablas y Constraints:</strong> CREATE, ALTER, DROP TABLE, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT.",
-     "<strong>Índices y Auto Increment:</strong> Mejora el rendimiento de las consultas con índices y claves autoincrementales."
+     "<strong> Query Basics: </strong> SELECT , INSERT , UPDATE , DELETE and WHERE .",
+     "<strong> Filtering and order: </strong> Operators, ORDER BY , LIKE , IN , BETWEEN , GROUP BY and HAVING .",
+     "<strong> Functions: </strong> Added functions ( COUNT , SUM , AVG , MAX , MIN ), string, numeric and date functions.",
+     "<strong> Tables and Constraints: </strong> CREATE , ALTER , DROP TABLE , PRIMARY KEY , FOREIGN KEY , UNIQUE , CHECK , DEFAULT .",
+     "<strong> Indexes and Auto Increment: </strong> Improves query performance with auto-incremental indexes and keys."
     ]
    },
    {
     "t": "h2",
-    "text": "Empezar a aprender:"
+    "text": "Start learning:"
    },
    {
     "t": "p",
-    "html": "Puedes hacer clic en los siguientes enlaces para explorar cada sección:"
+    "html": "You can click on the following links to explore each section:"
    }
   ]
  },
@@ -198,7 +198,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Be sure to specify the where clause. Failing to include the where clause will result in all of the rows to be deleted."
+    "html": "<strong> Note: </strong> Be sure to specify the where clause. Failing to include the where clause will result in all of the rows to be deleted."
    },
    {
     "t": "h2",
@@ -206,7 +206,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement deletes all patients named \"Paul\" from the \"patients\" table:"
+    "html": "The following SQL statement deletes all patients named \"Paul\"from the\"patients\" table:"
    },
    {
     "t": "code",
@@ -240,7 +240,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Be sure to specify the where clause. Failing to include the where clause will result in all of the rows to be updated."
+    "html": "<strong> Note: </strong> Be sure to specify the where clause. Failing to include the where clause will result in all of the rows to be updated."
    },
    {
     "t": "h2",
@@ -248,7 +248,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement updates the first patient (patient_id = 1) with a new first_name and a new weight."
+    "html": "The following SQL statement updates the first patient ( patient_id = 1) with a new first_name and a new weight."
    },
    {
     "t": "code",
@@ -395,7 +395,7 @@
    },
    {
     "t": "h3",
-    "text": "Between (inclusive range)"
+    "text": "Between (including range)"
    },
    {
     "t": "code",
@@ -424,17 +424,17 @@
  },
  {
   "id": "operators",
-  "title": "Operadores",
+  "title": "Operators",
   "cat": "Query Filtering",
   "sub": "",
   "blocks": [
    {
     "t": "h1",
-    "text": "SQL AND, OR and NOT Operators"
+    "text": "SQL AND , OR and NOT Operators"
    },
    {
     "t": "p",
-    "html": "The WHERE clause can be combined with AND, OR, and NOT operators."
+    "html": "The WHERE clause can be combined with AND , OR , and NOT operators."
    },
    {
     "t": "p",
@@ -485,7 +485,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all fields from \"patients\" where first_name is \"John\" AND city is \"Toronto\":"
+    "html": "The following SQL statement selects all fields from \"patients\"where first_name is\"John\"AND city is\"Toronto\":"
    },
    {
     "t": "code",
@@ -498,7 +498,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all fields from \"patients\" where city is \"Hamilton\" OR \"Toronto\":"
+    "html": "The following SQL statement selects all fields from \"patients\"where city is\"Hamilton\"OR\"Toronto\":"
    },
    {
     "t": "code",
@@ -511,7 +511,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all fields from \"patients\" where province_id is NOT \"ON\" (Ontario):"
+    "html": "The following SQL statement selects all fields from \"patients\"where province_id is NOT\" ON \" (Ontario):"
    },
    {
     "t": "code",
@@ -553,7 +553,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients from the \"patients\" table, sorted by the \"first_name\" column:"
+    "html": "The following SQL statement selects all patients from the \"patients\"table, sorted by the\" first_name \" column:"
    },
    {
     "t": "code",
@@ -566,7 +566,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients from the \"patients\" table, sorted DESCENDING by the \"first_name\" column:"
+    "html": "The following SQL statement selects all patients from the \"patients\"table, sorted DESCENDING by the\" first_name \" column:"
    },
    {
     "t": "code",
@@ -579,7 +579,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients from the \"patients\" table, sorted by the \"first_name\" and the \"last_name\" column. This means that it orders by first_name, but if some rows have the same first_name, it orders them by last_name:"
+    "html": "The following SQL statement selects all patients from the \"patients\"table, sorted by the\" first_name \"and the\" last_name \" column. This means that it orders by first_name , but if some rows have the same first_name , it orders them by last_name :"
    },
    {
     "t": "code",
@@ -592,7 +592,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients from the \"patients\" table, sorted ascending by the \"first_name\" and descending by the \"last_name\" column:"
+    "html": "The following SQL statement selects all patients from the \"patients\"table, sorted ascending by the\" first_name \"and descending by the\" last_name \" column:"
    },
    {
     "t": "code",
@@ -700,7 +700,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients with a first_name that starts with \"a\" and ends with \"o\":"
+    "html": "The following SQL statement selects all patients with a first_name that starts with \"a\"and ends with\"o\":"
    },
    {
     "t": "code",
@@ -760,7 +760,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients that are located in \"SK\", \"AB\" or \"MB\":"
+    "html": "The following SQL statement selects all patients that are located in \"SK\", \"AB\"or\"MB\":"
    },
    {
     "t": "code",
@@ -769,7 +769,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients that are NOT located in \"SK\", \"AB\" or \"MB\":"
+    "html": "The following SQL statement selects all patients that are NOT located in \"SK\", \"AB\"or\"MB\":"
    },
    {
     "t": "code",
@@ -833,7 +833,7 @@
    },
    {
     "t": "p",
-    "html": "To display the products outside the range of the previous example, use NOT BETWEEN:"
+    "html": "To display the products outside the range of the previous example, use NOT BETWEEN :"
    },
    {
     "t": "code",
@@ -863,7 +863,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement selects all patients with their first_name between 'Alex' and 'Ben':"
+    "html": "The following SQL statement selects all patients with their first_name between 'Alex'and'Ben':"
    },
    {
     "t": "code",
@@ -919,7 +919,7 @@
    },
    {
     "t": "p",
-    "html": "Notice that the \"patient_id\" column in the \"unit_dose_orders\" table refers to the \"patient_id\" in the \"patients\" table. The relationship between the two tables is the \"patient_id\" column."
+    "html": "Notice that the \"patient_id\" column in the \"unit_dose_orders\" table refers to the \"patient_id\" in the \"patients\"table. The relationship between the two tables is the\" patient_id \" column."
    },
    {
     "t": "h2",
@@ -940,31 +940,31 @@
    },
    {
     "t": "p",
-    "html": "It is rare to need a join other than (INNER) JOIN."
+    "html": "It is rare to need a join other than ( INNER ) JOIN ."
    },
    {
     "t": "p",
-    "html": "<strong>DISCLAIMER:</strong> Our tool only supports INNER/LEFT JOIN"
+    "html": "<strong> DISCLAIMER: </strong> Our tool only supports INNER / LEFT JOIN"
    },
    {
     "t": "p",
-    "html": "Here are the different types of the JOINs in SQL:"
+    "html": "Here are the different types of the JOINs in SQL :"
    },
    {
     "t": "p",
-    "html": "- (INNER) JOIN: Returns records that have matching values in both tables"
+    "html": "- ( INNER ) JOIN : Returns records that have matching values in both tables"
    },
    {
     "t": "p",
-    "html": "- LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table"
+    "html": "- LEFT ( OUTER ) JOIN : Returns all records from the left table, and the matched records from the right table"
    },
    {
     "t": "p",
-    "html": "- RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table"
+    "html": "- RIGHT ( OUTER ) JOIN : Returns all records from the right table, and the matched records from the left table"
    },
    {
     "t": "p",
-    "html": "- FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table"
+    "html": "- FULL ( OUTER ) JOIN : Returns all records when there is a match in either left or right table"
    },
    {
     "t": "img",
@@ -973,7 +973,7 @@
    },
    {
     "t": "h2",
-    "text": "JOIN Three Tables"
+    "text": "JOINThree Tables"
    },
    {
     "t": "code",
@@ -1023,7 +1023,7 @@
    },
    {
     "t": "p",
-    "html": "The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL:"
+    "html": "The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL :"
    },
    {
     "t": "code",
@@ -1032,7 +1032,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> The column names in the result-set are usually equal to the column names in the first SELECT statement."
+    "html": "<strong> Note: </strong> The column names in the result-set are usually equal to the column names in the first SELECT statement."
    },
    {
     "t": "h2",
@@ -1040,7 +1040,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement returns the first_names (only distinct values) from both the \"patients\" and the \"doctors\" table:"
+    "html": "The following SQL statement returns the first_names (only distinct values) from both the \"patients\"and the\"doctors\" table:"
    },
    {
     "t": "code",
@@ -1053,7 +1053,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement returns the first_names (duplicate values also) from both the \"patients\" and the \"doctors\" table:"
+    "html": "The following SQL statement returns the first_names (duplicate values also) from both the \"patients\"and the\"doctors\" table:"
    },
    {
     "t": "code",
@@ -1078,7 +1078,7 @@
    },
    {
     "t": "p",
-    "html": "The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to group the result-set by one or more columns."
+    "html": "The GROUP BY statement is often used with aggregate functions ( COUNT() , MAX() , MIN() , SUM() , AVG() ) to group the result-set by one or more columns."
    },
    {
     "t": "h2",
@@ -1176,7 +1176,7 @@
    },
    {
     "t": "p",
-    "html": "If there is no ELSE part and no conditions are true, it returns NULL."
+    "html": "If there is no ELSE part and no conditions are true, it returns NULL ."
    },
    {
     "t": "h2",
@@ -1206,7 +1206,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL will order the patients by allergies. However, if allergies is NULL, then order by patient_id:"
+    "html": "The following SQL will order the patients by allergies. However, if allergies is NULL , then order by patient_id :"
    },
    {
     "t": "code",
@@ -1299,7 +1299,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> SQL statements that use the EXISTS condition are very inefficient since the sub-query is rerun for EVERY row in the outer query's table. There are more efficient ways to write most queries, that do not use the EXISTS condition."
+    "html": "<strong> Note: </strong> SQL statements that use the EXISTS condition are very inefficient since the sub-query is rerun for EVERY row in the outer query's table. There are more efficient ways to write most queries, that do not use the EXISTS condition."
    },
    {
     "t": "h2",
@@ -1350,7 +1350,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>DISCLAIMER:</strong> This tool does not support the Any/All Operator."
+    "html": "<strong> DISCLAIMER: </strong> This tool does not support the Any/All Operator."
    },
    {
     "t": "h2",
@@ -1364,7 +1364,7 @@
     "t": "ul",
     "items": [
      "returns a boolean value as a result",
-     "returns TRUE if ANY of the subquery values meet the condition"
+     "returns TRUE if ANY of the subquery values meets the condition"
     ]
    },
    {
@@ -1392,8 +1392,8 @@
     "t": "ul",
     "items": [
      "returns a boolean value as a result",
-     "returns TRUE if ALL of the subquery values meet the condition",
-     "is used with SELECT, WHERE and HAVING statements"
+     "returns TRUE if ALL of the subquery values meets the condition",
+     "is used with SELECT , WHERE and HAVING statements"
     ]
    },
    {
@@ -1428,11 +1428,11 @@
   "blocks": [
    {
     "t": "h1",
-    "text": "SQL IFNULL(), ISNULL(), COALESCE(), and NVL() Functions"
+    "text": "SQL IFNULL() , ISNULL() , COALESCE() , and NVL() Functions"
    },
    {
     "t": "p",
-    "html": "The IFNULL function goes by many names depending on what SQL dialect you are using. We use IFNULL but your specific language may use ISNULL, COALESCE, or NVL — most function the same."
+    "html": "The IFNULL function goes by many names depending on what SQL dialect you are using. We use IFNULL but your specific language may use ISNULL, COALESCE , or NVL — most function the same."
    },
    {
     "t": "h2",
@@ -1445,7 +1445,7 @@
    },
    {
     "t": "p",
-    "html": "The <code>allergies</code> column displays NULL for some rows. We want it to display a default value instead."
+    "html": "The <code> allergies </code> column displays NULL for some rows. We want it to display a default value instead."
    },
    {
     "t": "h2",
@@ -1457,7 +1457,7 @@
    },
    {
     "t": "p",
-    "html": "The IFNULL() function returns an alternative value if an expression is NULL:"
+    "html": "The IFNULL() function returns an alternative value if an expression is NULL :"
    },
    {
     "t": "code",
@@ -1466,7 +1466,7 @@
    },
    {
     "t": "p",
-    "html": "Or using COALESCE():"
+    "html": "Or using COALESCE() :"
    },
    {
     "t": "code",
@@ -1475,11 +1475,11 @@
    },
    {
     "t": "h3",
-    "text": "SQL Server"
+    "text": "SQLServer"
    },
    {
     "t": "p",
-    "html": "The ISNULL() function returns an alternative value if the expression is NULL:"
+    "html": "The ISNULL() function returns an alternative value if the expression is NULL :"
    },
    {
     "t": "code",
@@ -1488,11 +1488,11 @@
    },
    {
     "t": "h3",
-    "text": "MS Access"
+    "text": "MSAccess"
    },
    {
     "t": "p",
-    "html": "The IsNull() function returns TRUE (1) if the expression is NULL, otherwise FALSE (0):"
+    "html": "The IsNull() function returns TRUE (1) if the expression is NULL , otherwise FALSE (0):"
    },
    {
     "t": "code",
@@ -1516,7 +1516,7 @@
  },
  {
   "id": "null-values",
-  "title": "Valores NULL",
+  "title": "Values NULL",
   "cat": "Query Filtering",
   "sub": "",
   "blocks": [
@@ -1542,11 +1542,11 @@
    },
    {
     "t": "p",
-    "html": "It is not possible to test for NULL values with comparison operators, such as =, &lt;, or &lt;&gt;."
+    "html": "It is not possible to test for NULL values with comparison operators, such as =, &lt; , or &lt; &gt; ."
    },
    {
     "t": "p",
-    "html": "We have to use the <strong>IS NULL</strong> and <strong>IS NOT NULL</strong> operators instead."
+    "html": "We have to use the <strong> IS NULL </strong> and <strong> IS NOT NULL </strong> operators instead."
    },
    {
     "t": "h3",
@@ -1572,7 +1572,7 @@
    },
    {
     "t": "p",
-    "html": "The IS NULL operator is used to test for empty values (NULL values)."
+    "html": "The IS NULL operator is used to test for empty values ( NULL values)."
    },
    {
     "t": "p",
@@ -1601,7 +1601,7 @@
    },
    {
     "t": "p",
-    "html": "An alias only exists for the duration of that query. An alias is created with the <strong>AS</strong> keyword. Depending on the SQL dialect, the AS keyword may be optional."
+    "html": "An alias only exists for the duration of that query. An alias is created with the <strong> AS </strong> keyword. Depending on the SQL dialect, the AS keyword may be optional."
    },
    {
     "t": "h2",
@@ -1627,7 +1627,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement creates two aliases, one for the <code>weight</code> column and one for the <code>height</code> column:"
+    "html": "The following SQL statement creates two aliases, one for the <code> weight </code> column and one for the <code> height </code> column:"
    },
    {
     "t": "code",
@@ -1636,11 +1636,11 @@
    },
    {
     "t": "h2",
-    "text": "Alias for Tables Example"
+    "text": "Aliases for Tables Example"
    },
    {
     "t": "p",
-    "html": "The following SQL renames the <code>admissions</code> table as 'a' and the <code>patients</code> table as 'p':"
+    "html": "The following SQL renames the <code> admissions </code> table as 'a'and the <code> patients </code> table as'p':"
    },
    {
     "t": "code",
@@ -1661,11 +1661,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>COUNT()</strong> function returns the number of rows that match a specified criterion."
+    "html": "The <strong> COUNT() </strong> function returns the number of rows that match a specified criterion."
    },
    {
     "t": "p",
-    "html": "COUNT() usually has <code>*</code> as its parameter because the name of the column does not usually matter since they all have the same count."
+    "html": "COUNT() usually has <code> * </code> as its parameter because the name of the column does not usually matter since they all have the same count."
    },
    {
     "t": "h2",
@@ -1703,7 +1703,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>AVG()</strong> function returns the average value of a numeric column."
+    "html": "The <strong> AVG() </strong> function returns the average value of a numeric column."
    },
    {
     "t": "h2",
@@ -1741,7 +1741,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>SUM()</strong> function returns the total sum of a numeric column."
+    "html": "The <strong> SUM() </strong> function returns the total sum of a numeric column."
    },
    {
     "t": "h2",
@@ -1779,7 +1779,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>MAX()</strong> function returns the largest value of the selected column."
+    "html": "The <strong> MAX() </strong> function returns the largest value of the selected column."
    },
    {
     "t": "h2",
@@ -1817,7 +1817,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>MIN()</strong> function returns the smallest value of the selected column."
+    "html": "The <strong> MIN() </strong> function returns the smallest value of the selected column."
    },
    {
     "t": "h2",
@@ -1855,11 +1855,11 @@
    },
    {
     "t": "p",
-    "html": "<strong>Introduction to SQL Window Functions</strong>"
+    "html": "<strong> Introduction to SQL Window Functions </strong>"
    },
    {
     "t": "p",
-    "html": "The aggregate functions (SUM, AVG, COUNT, MIN, MAX, etc) perform calculations across a set of rows and return a single output row."
+    "html": "The aggregate functions ( SUM , AVG , COUNT , MIN , MAX , etc) perform calculations across a set of rows and return a single output row."
    },
    {
     "t": "p",
@@ -1885,7 +1885,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>OVER()</strong> clause signals that AVG() is used as a window function."
+    "html": "The <strong> OVER() </strong> clause signals that AVG() is used as a window function."
    },
    {
     "t": "img",
@@ -1903,22 +1903,22 @@
    },
    {
     "t": "p",
-    "html": "<strong>Clauses explanation:</strong>"
+    "html": "<strong> Clauses explanation: </strong>"
    },
    {
     "t": "ul",
     "items": [
-     "<strong>window_function_name</strong>: ROW_NUMBER(), RANK(), SUM(), AVG(), etc.",
-     "<strong>expression</strong>: the target column or expression.",
-     "<strong>OVER clause</strong>: defines partitions and order of rows.",
-     "<strong>partition_clause</strong>: divides rows into partitions. Syntax: PARTITION BY expr1, expr2, ...",
-     "<strong>order_clause</strong>: orders rows in a partition. Syntax: ORDER BY expression [ASC|DESC] [NULL {FIRST|LAST}], ...",
-     "<strong>frame_clause</strong>: subset of the partition. Syntax: {ROWS|RANGE} frame_start [{BETWEEN frame_start AND frame_end}]"
+     "<strong> window_function_name </strong>: ROW_NUMBER(), RANK(), SUM(), AVG(), etc.",
+     "<strong> expression </strong> : the target column or expression.",
+     "<strong> OVER clause </strong> : defines partitions and order of rows.",
+     "<strong> partition_clause </strong> : divides rows into partitions. Syntax: PARTITION BY expr1, expr2, ...",
+     "<strong> order_clause </strong> : orders rows in a partition. Syntax: ORDER BY expression [ ASC | DESC ] [ NULL {FIRST|LAST}], ...",
+     "<strong> frame_clause </strong> : subset of the partition. Syntax: {ROWS|RANGE} frame_start [{ BETWEEN frame_start AND frame_end }]"
     ]
    },
    {
     "t": "p",
-    "html": "<strong>Frame options:</strong>"
+    "html": "<strong> Frame options: </strong>"
    },
    {
     "t": "img",
@@ -1937,14 +1937,14 @@
    },
    {
     "t": "p",
-    "html": "<strong>Window function types:</strong>"
+    "html": "<strong> Window function types: </strong>"
    },
    {
     "t": "ul",
     "items": [
-     "Value window functions: FIRST_VALUE(), LAST_VALUE(), LAG(), LEAD()",
-     "Ranking window functions: CUME_DIST(), DENSE_RANK(), NTILE(), PERCENT_RANK(), RANK(), ROW_NUMBER()",
-     "Aggregate window functions: AVG(), COUNT(), MAX(), MIN(), SUM()"
+     "Value window functions: FIRST_VALUE() , LAST_VALUE() , LAG() , LEAD()",
+     "Ranking window functions: CUME_DIST() , DENSE_RANK() , NTILE() , PERCENT_RANK() , RANK() , ROW_NUMBER()",
+     "Aggregate window functions: AVG() , COUNT() , MAX() , MIN() , SUM()"
     ]
    },
    {
@@ -1953,7 +1953,7 @@
    },
    {
     "t": "p",
-    "html": "The result of a window function cannot be filtered by WHERE or HAVING. Use a WITH clause to create a temporary table."
+    "html": "The result of a window function cannot be filtered by WHERE or HAVING . Use a WITH clause to create a temporary table."
    },
    {
     "t": "p",
@@ -1975,7 +1975,7 @@
    },
    {
     "t": "p",
-    "html": "Correct filtering using WITH:"
+    "html": "Correct filtering using WITH :"
    },
    {
     "t": "code",
@@ -1996,7 +1996,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>LAG()</strong> function returns the record offset by the specified amount."
+    "html": "The <strong> LAG() </strong> function returns the record offset by the specified amount."
    },
    {
     "t": "h2",
@@ -2014,8 +2014,8 @@
    {
     "t": "ul",
     "items": [
-     "<strong>expression</strong>: Required. The value to be returned based on the specified offset. Must be a scalar value; cannot be an analytic function.",
-     "<strong>offset</strong>: Optional. Number of rows back from the current row. Default is 1. Must be positive; cannot be negative or an analytic function."
+     "<strong> expression </strong> : Required. The value to be returned based on the specified offset. Must be a scalar value; cannot be an analytical function.",
+     "<strong> offset </strong> : Optional. Number of rows back from the current row. Default is 1. Must be positive; cannot be negative or an analytical function."
     ]
    },
    {
@@ -2024,7 +2024,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement displays each patient's <strong>first_name</strong> along with the <strong>first_name</strong> of the previous patient:"
+    "html": "The following SQL statement displays each patient's <strong> first_name </strong> along with the <strong> first_name </strong> of the previous patient:"
    },
    {
     "t": "code",
@@ -2045,7 +2045,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>LEAD()</strong> function returns the record offset by the specified amount forward."
+    "html": "The <strong> LEAD() </strong> function returns the record offset by the specified forward amount."
    },
    {
     "t": "h2",
@@ -2063,8 +2063,8 @@
    {
     "t": "ul",
     "items": [
-     "<strong>expression</strong>: Required. The value to be returned based on the specified offset. Must be a scalar value; cannot be an analytic function.",
-     "<strong>offset</strong>: Optional. Number of rows forward from the current row. Default is 1. Must be positive; cannot be negative or an analytic function."
+     "<strong> expression </strong> : Required. The value to be returned based on the specified offset. Must be a scalar value; cannot be an analytical function.",
+     "<strong> offset </strong> : Optional. Number of rows forward from the current row. Default is 1. Must be positive; cannot be negative or an analytical function."
     ]
    },
    {
@@ -2073,7 +2073,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement displays each patient's <strong>first_name</strong> along with the <strong>first_name</strong> of the next patient:"
+    "html": "The following SQL statement displays each patient's <strong> first_name </strong> along with the <strong> first_name </strong> of the next patient:"
    },
    {
     "t": "code",
@@ -2094,7 +2094,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>FIRST_VALUE()</strong> function is a window function that returns the first value in an ordered partition of a result set."
+    "html": "The <strong> FIRST_VALUE() </strong> function is a window function that returns the first value in an ordered partition of a result set."
    },
    {
     "t": "h2",
@@ -2112,7 +2112,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>scalar_expression</strong>: Required. An expression evaluated against the value of the first row in an ordered partition. Can be a column, subquery, or expression that evaluates to a single value. Cannot be a window function."
+     "<strong> scalar_expression </strong> : Required. An expression evaluated against the value of the first row in an ordered partition. Can be a column, subquery, or expression that evaluates to a single value. Cannot be a window function."
     ]
    },
    {
@@ -2121,7 +2121,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement displays the oldest patient's <strong>birth_date</strong> for the province the patient is in:"
+    "html": "The following SQL statement displays the oldest patient's <strong> birth_date </strong> for the province the patient is in:"
    },
    {
     "t": "code",
@@ -2142,7 +2142,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>LAST_VALUE()</strong> function is a window function that returns the last value in an ordered partition of a result set."
+    "html": "The <strong> LAST_VALUE() </strong> function is a window function that returns the last value in an ordered partition of a result set."
    },
    {
     "t": "h2",
@@ -2160,7 +2160,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>scalar_expression</strong>: Required. An expression evaluated against the value of the last row in an ordered partition. Can be a column, subquery, or expression that evaluates to a single value. Cannot be a window function."
+     "<strong> scalar_expression </strong> : Required. An expression evaluated against the value of the last row in an ordered partition. Can be a column, subquery, or expression that evaluates to a single value. Cannot be a window function."
     ]
    },
    {
@@ -2169,7 +2169,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement displays the youngest patient's <strong>birth_date</strong> for the province the patient is in:"
+    "html": "The following SQL statement displays the youngest patient's <strong> birth_date </strong> for the province the patient is in:"
    },
    {
     "t": "code",
@@ -2190,11 +2190,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>CONCAT()</strong> function adds two or more expressions together."
+    "html": "The <strong> CONCAT() </strong> function adds two or more expressions together."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Depending on the SQL language, there may be built-in syntax for concatenation such as <code>+</code> or <code>||</code>."
+    "html": "<strong> Note: </strong> Depending on the SQL language, there may be built-in syntax for concatenation such as <code> + </code> or <code> || </code> ."
    },
    {
     "t": "h2",
@@ -2212,7 +2212,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>expression1, expression2, expression3, etc.</strong>: Required. The expressions to add together. If any expression is NULL, the result will be NULL."
+     "<strong> expression1, expression2, expression3, etc. </strong> : Required. The expressions to add together. If any expression is NULL , the result will be NULL ."
     ]
    },
    {
@@ -2221,7 +2221,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement concatenates the <strong>first_name</strong> and <strong>last_name</strong> of each patient:"
+    "html": "The following SQL statement concatenates the <strong> first_name </strong> and <strong> last_name </strong> of each patient:"
    },
    {
     "t": "code",
@@ -2242,11 +2242,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>LEN()</strong> function returns the length of a string in bytes."
+    "html": "The <strong> LEN() </strong> function returns the length of a string in bytes."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Depending on the SQL language, LEN() may also be called <strong>LENGTH()</strong>."
+    "html": "<strong> Note: </strong> Depending on the SQL language, LEN() may also be called <strong> LENGTH() </strong> ."
    },
    {
     "t": "h2",
@@ -2264,7 +2264,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>string</strong>: Required. The string to calculate the length for."
+     "<strong> string </strong> : Required. The string to calculate the length for."
     ]
    },
    {
@@ -2273,7 +2273,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement shows each patient's <strong>first_name</strong> and the length of that name:"
+    "html": "The following SQL statement shows each patient's <strong> first_name </strong> and the length of that name:"
    },
    {
     "t": "code",
@@ -2294,11 +2294,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>UPPER()</strong> function returns a string in uppercase. Example: <code>'ExAmple'</code> → <code>'EXAMPLE'</code>."
+    "html": "The <strong> UPPER() </strong> function returns a string in uppercase. Example: <code> 'ExAmple'</code> → <code>'EXAMPLE' </code> ."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Depending on the SQL language, UPPER() may also be called <strong>UCASE()</strong>."
+    "html": "<strong> Note: </strong> Depending on the SQL language, UPPER() may also be called <strong> UCASE() </strong> ."
    },
    {
     "t": "h2",
@@ -2316,7 +2316,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>string</strong>: Required. The string to convert to uppercase."
+     "<strong> string </strong> : Required. The string to convert to uppercase."
     ]
    },
    {
@@ -2325,7 +2325,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement shows each patient's <strong>first_name</strong> in uppercase:"
+    "html": "The following SQL statement shows each patient's <strong> first_name </strong> in uppercase:"
    },
    {
     "t": "code",
@@ -2346,11 +2346,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>LOWER()</strong> function returns a string in lowercase. Example: <code>'ExAmple'</code> → <code>'example'</code>."
+    "html": "The <strong> LOWER() </strong> function returns a string in lowercase. Example: <code> 'ExAmple'</code> → <code>'example' </code> ."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Depending on the SQL language, LOWER() may also be called <strong>LCASE()</strong>."
+    "html": "<strong> Note: </strong> Depending on the SQL language, LOWER() may also be called <strong> LCASE() </strong> ."
    },
    {
     "t": "h2",
@@ -2368,7 +2368,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>string</strong>: Required. The string to convert to lowercase."
+     "<strong> string </strong> : Required. The string to convert to lowercase."
     ]
    },
    {
@@ -2377,7 +2377,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement shows each patient's <strong>first_name</strong> in lowercase:"
+    "html": "The following SQL statement shows each patient's <strong> first_name </strong> in lowercase:"
    },
    {
     "t": "code",
@@ -2398,15 +2398,15 @@
    },
    {
     "t": "p",
-    "html": "The <strong>RAND()</strong> function returns a random number between 0 and 1."
+    "html": "The <strong> RAND() </strong> function returns a random number between 0 and 1."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Depending on the SQL language, RAND() may also be called <strong>RANDOM()</strong>."
+    "html": "<strong> Note: </strong> Depending on the SQL language, RAND() may also be called <strong> RANDOM() </strong> ."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> This implementation does not support the seed parameter."
+    "html": "<strong> Note: </strong> This implementation does not support the seed parameter."
    },
    {
     "t": "h2",
@@ -2424,7 +2424,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>seed</strong>: Optional. If specified, it returns a repeatable sequence of random numbers. If not specified, it returns a completely random number."
+     "<strong> seed </strong> : Optional. If specified, it returns a repeatable sequence of random numbers. If not specified, it returns a completely random number."
     ]
    },
    {
@@ -2454,7 +2454,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>ROUND()</strong> function returns a number rounded to the nearest specified decimal position."
+    "html": "The <strong> ROUND() </strong> function returns a number rounded to the nearest specified decimal position."
    },
    {
     "t": "h2",
@@ -2472,8 +2472,8 @@
    {
     "t": "ul",
     "items": [
-     "<strong>number</strong>: Required. The numeric value to round.",
-     "<strong>decimals</strong>: Optional. The number of decimal places to round to. If omitted, the result will be an integer (no decimals)."
+     "<strong> number </strong> : Required. The numerical value to round.",
+     "<strong> decimals </strong> : Optional. The number of decimal places to round to. If omitted, the result will be an integer (not decimals)."
     ]
    },
    {
@@ -2482,7 +2482,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement rounds <strong>135.375</strong> to 2 decimal places:"
+    "html": "The following SQL statement rounds <strong> 135.375 </strong> to 2 decimal places:"
    },
    {
     "t": "code",
@@ -2503,7 +2503,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>FLOOR()</strong> function returns a number rounded down to the nearest integer."
+    "html": "The <strong> FLOOR() </strong> function returns a number rounded down to the nearest integer."
    },
    {
     "t": "h2",
@@ -2521,7 +2521,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>number</strong>: Required. The numeric value to round down."
+     "<strong> number </strong> : Required. The numerical value to round down."
     ]
    },
    {
@@ -2530,7 +2530,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement rounds down <strong>25.9</strong> to <strong>25</strong>:"
+    "html": "The following SQL statement rounds down <strong> 25.9 </strong> to <strong> 25 </strong>:"
    },
    {
     "t": "code",
@@ -2551,7 +2551,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>CEIL()</strong> function returns a number rounded up to the nearest integer."
+    "html": "The <strong> CEIL() </strong> function returns a number rounded up to the nearest integer."
    },
    {
     "t": "h2",
@@ -2569,7 +2569,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>number</strong>: Required. The numeric value to round up."
+     "<strong> number </strong> : Required. The numerical value to round up."
     ]
    },
    {
@@ -2578,7 +2578,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement rounds up <strong>25.1</strong> to <strong>26</strong>:"
+    "html": "The following SQL statement rounds up <strong> 25.1 </strong> to <strong> 26 </strong>:"
    },
    {
     "t": "code",
@@ -2599,7 +2599,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>ABS()</strong> function returns the absolute (positive) value of a number."
+    "html": "The <strong> ABS() </strong> function returns the absolute (positive) value of a number."
    },
    {
     "t": "h2",
@@ -2617,7 +2617,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>number</strong>: Required. A numeric value."
+     "<strong> number </strong> : Required. A numerical value."
     ]
    },
    {
@@ -2626,7 +2626,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement returns the absolute value of <strong>-362.3</strong>:"
+    "html": "The following SQL statement returns the absolute value of <strong> -362.3 </strong> :"
    },
    {
     "t": "code",
@@ -2647,11 +2647,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>POWER()</strong> function returns the value of a number raised to the power of another number."
+    "html": "The <strong> POWER() </strong> function returns the value of a number raised to the power of another number."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Depending on the SQL language, POWER() may also be called <strong>POW()</strong>."
+    "html": "<strong> Note: </strong> Depending on the SQL language, POWER() may also be called <strong> POW() </strong> ."
    },
    {
     "t": "h2",
@@ -2669,8 +2669,8 @@
    {
     "t": "ul",
     "items": [
-     "<strong>base</strong>: Required. The base number.",
-     "<strong>exponent</strong>: Required. The exponent (power to raise the base)."
+     "<strong> base </strong> : Required. The base number.",
+     "<strong> exponent </strong> : Required. The exponent (power to raise the base)."
     ]
    },
    {
@@ -2679,7 +2679,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement returns <strong>8</strong> raised to the power of <strong>3</strong>:"
+    "html": "The following SQL statement returns <strong> 8 </strong> raised to the power of <strong> 3 </strong> :"
    },
    {
     "t": "code",
@@ -2700,7 +2700,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>SQRT()</strong> function returns the square root of a number."
+    "html": "The <strong> SQRT() </strong> function returns the square root of a number."
    },
    {
     "t": "h2",
@@ -2718,7 +2718,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>number</strong>: Required. A number to calculate the square root of. Must be greater than 0."
+     "<strong> number </strong> : Required. A number to calculate the square root of. Must be greater than 0."
     ]
    },
    {
@@ -2727,7 +2727,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement returns the square root of <strong>13</strong>:"
+    "html": "The following SQL statement returns the square root of <strong> 13 </strong> :"
    },
    {
     "t": "code",
@@ -2748,7 +2748,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>CURRENT_TIMESTAMP</strong> function returns the current date and time."
+    "html": "The <strong> CURRENT_TIMESTAMP </strong> function returns the current date and time."
    },
    {
     "t": "p",
@@ -2781,7 +2781,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>YEAR()</strong> function returns the year part for a given date (a number from 1000 to 9999)."
+    "html": "The <strong> YEAR() </strong> function returns the year part for a given date (a number from 1000 to 9999)."
    },
    {
     "t": "h2",
@@ -2799,7 +2799,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>date</strong>: Required. The date to extract the year from."
+     "<strong> date </strong> : Required. The date to extract the year from."
     ]
    },
    {
@@ -2829,7 +2829,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>MONTH()</strong> function returns the month part for a given date."
+    "html": "The <strong> MONTH() </strong> function returns the month part for a given date."
    },
    {
     "t": "h2",
@@ -2847,7 +2847,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>date</strong>: Required. The date to extract the month from."
+     "<strong> date </strong> : Required. The date to extract the month from."
     ]
    },
    {
@@ -2877,7 +2877,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>DAY()</strong> function returns the day part for a given date."
+    "html": "The <strong> DAY() </strong> function returns the day part for a given date."
    },
    {
     "t": "h2",
@@ -2895,7 +2895,7 @@
    {
     "t": "ul",
     "items": [
-     "<strong>date</strong>: Required. The date to extract the day from."
+     "<strong> date </strong> : Required. The date to extract the day from."
     ]
    },
    {
@@ -2915,7 +2915,7 @@
  },
  {
   "id": "datatypes",
-  "title": "Tipos de datos",
+  "title": "Data types",
   "cat": "Tables",
   "sub": "",
   "blocks": [
@@ -2946,15 +2946,15 @@
    {
     "t": "ul",
     "items": [
-     "<strong>CHAR(size)</strong>: Fixed length string, 0-255 characters.",
-     "<strong>VARCHAR(size)</strong>: Variable length string, up to 65535 characters.",
-     "<strong>BINARY(size)</strong>: Fixed-length binary string.",
-     "<strong>VARBINARY(size)</strong>: Variable-length binary string.",
-     "<strong>TINYBLOB / TINYTEXT</strong>: Max length 255 bytes / chars.",
-     "<strong>TEXT / BLOB</strong>: Max length 65535 bytes / chars.",
-     "<strong>MEDIUMTEXT / MEDIUMBLOB</strong>: Max length 16,777,215 bytes / chars.",
-     "<strong>LONGTEXT / LONGBLOB</strong>: Max length 4,294,967,295 bytes / chars.",
-     "<strong>ENUM / SET</strong>: Predefined lists of values."
+     "<strong> CHAR(size) </strong> : Fixed length string, 0-255 characters.",
+     "<strong> VARCHAR (size) </strong> : Variable length string, up to 65535 characters.",
+     "<strong> BINARY(size) </strong> : Fixed-length binary string.",
+     "<strong> VARBINARY(size) </strong> : Variable-length binary string.",
+     "<strong> TINYBLOB / TINYTEXT </strong> : Max length 255 bytes / chars.",
+     "<strong> TEXT / BLOB </strong> : Max length 65535 bytes / chars.",
+     "<strong> MEDIUMTEXT / MEDIUMBLOB </strong> : Max length 16,777,215 bytes / chars.",
+     "<strong> LONGTEXT / LONGBLOB </strong> : Max length 4,294,967,295 bytes / chars.",
+     "<strong> ENUM / SET </strong> : Predefined lists of values."
     ]
    },
    {
@@ -2964,10 +2964,10 @@
    {
     "t": "ul",
     "items": [
-     "<strong>INT / INTEGER / BIGINT / SMALLINT / MEDIUMINT / TINYINT</strong>: Integer types with various ranges.",
-     "<strong>FLOAT / DOUBLE / DECIMAL</strong>: Floating-point and exact numeric types.",
-     "<strong>BIT</strong>: Bit values, 1–64 bits.",
-     "<strong>BOOL / BOOLEAN</strong>: True/False values."
+     "<strong> INT / INTEGER / BIGINT / SMALLINT / MEDIUMINT / TINYINT </strong> : Integer types with various ranges.",
+     "<strong> FLOAT / DOUBLE / DECIMAL </strong> : Floating-point and exact numerical types.",
+     "<strong> BIT </strong> : Bit values, 1–64 bits.",
+     "<strong> BOOL / BOOLEAN </strong> : True/False values."
     ]
    },
    {
@@ -2977,10 +2977,10 @@
    {
     "t": "ul",
     "items": [
-     "<strong>DATE</strong>: YYYY-MM-DD",
-     "<strong>DATETIME / TIMESTAMP</strong>: Date and time values",
-     "<strong>TIME</strong>: Time only",
-     "<strong>YEAR</strong>: Four-digit year"
+     "<strong> DATE </strong> : YYYY-MM-DD",
+     "<strong> DATETIME / TIMESTAMP </strong> : Date and time values",
+     "<strong> TIME </strong> : Time only",
+     "<strong> YEAR </strong> : Four-digit year"
     ]
    },
    {
@@ -2993,7 +2993,7 @@
      "String: char(n), varchar(n), varchar(max), text, nchar, nvarchar(n), nvarchar(max), ntext",
      "Numeric: bit, tinyint, smallint, int, bigint, decimal(p,s), numeric(p,s), smallmoney, money, float(n), real",
      "Date/Time: datetime, datetime2, smalldatetime, date, time, datetimeoffset, timestamp",
-     "Other: sql_variant, uniqueidentifier, xml, cursor, table"
+     "Other: sql_variant , uniqueidentifier, xml, cursor, table"
     ]
    },
    {
@@ -3020,7 +3020,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>CREATE TABLE</strong> statement is used to create a new table in a database."
+    "html": "The <strong> CREATE TABLE </strong> statement is used to create a new table in a database."
    },
    {
     "t": "h2",
@@ -3033,7 +3033,7 @@
    },
    {
     "t": "p",
-    "html": "The <em>column</em> parameters specify the names of the columns, and the <em>datatype</em> parameter specifies the type of data the column can hold (e.g., varchar, integer, date)."
+    "html": "The <em> column </em> parameters specify the names of the columns, and the <em> datatype </em> parameter specifies the type of data the column can hold (e.g., varchar, integer, date)."
    },
    {
     "t": "h2",
@@ -3041,7 +3041,7 @@
    },
    {
     "t": "p",
-    "html": "Create a table called <strong>Persons</strong> with 5 columns:"
+    "html": "Create a table called <strong> Persons </strong> with 5 columns:"
    },
    {
     "t": "code",
@@ -3063,7 +3063,7 @@
    },
    {
     "t": "p",
-    "html": "Example: Copy selected columns from the <strong>patients</strong> table:"
+    "html": "Example: Copy selected columns from the <strong> patients </strong> table:"
    },
    {
     "t": "code",
@@ -3084,7 +3084,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>DROP TABLE</strong> statement is used to remove an existing table from a database."
+    "html": "The <strong> DROP TABLE </strong> statement is used to remove an existing table from a database."
    },
    {
     "t": "h2",
@@ -3097,7 +3097,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Be careful before dropping a table. Deleting a table will result in the loss of all data stored in it!"
+    "html": "<strong> Note: </strong> Be careful before dropping a table. Deleting a table will result in the loss of all data stored in it!"
    },
    {
     "t": "h2",
@@ -3105,7 +3105,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL statement drops the existing table <strong>patients</strong>:"
+    "html": "The following SQL statement drops the existing table <strong> patients </strong> :"
    },
    {
     "t": "code",
@@ -3126,11 +3126,11 @@
    },
    {
     "t": "p",
-    "html": "The <strong>ALTER TABLE</strong> statement is used to add, delete, or modify columns in an existing table. It is also used to add or drop various constraints on an existing table."
+    "html": "The <strong> ALTER TABLE </strong> statement is used to add, delete, or modify columns in an existing table. It is also used to add or drop various constraints on an existing table."
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> ALTER/MODIFY COLUMN syntax is not supported in this tutorial."
+    "html": "<strong> Note: </strong> ALTER /MODIFY COLUMN syntax is not supported in this tutorial."
    },
    {
     "t": "h2",
@@ -3143,7 +3143,7 @@
    },
    {
     "t": "p",
-    "html": "Example: Add an \"email\" column to the \"patients\" table:"
+    "html": "Example: Add an \"email\"column to the\"patients\" table:"
    },
    {
     "t": "code",
@@ -3174,7 +3174,7 @@
    },
    {
     "t": "h2",
-    "text": "ALTER TABLE - ALTER/MODIFY COLUMN Syntax"
+    "text": "ALTER TABLE - ALTER /MODIFY COLUMN Syntax"
    },
    {
     "t": "p",
@@ -3203,7 +3203,7 @@
    },
    {
     "t": "p",
-    "html": "Constraints can be specified when the table is created with the <strong>CREATE TABLE</strong> statement, or after the table is created with the <strong>ALTER TABLE</strong> statement."
+    "html": "Constraints can be specified when the table is created with the <strong> CREATE TABLE </strong> statement, or after the table is created with the <strong> ALTER TABLE </strong> statement."
    },
    {
     "t": "h2",
@@ -3224,7 +3224,7 @@
    },
    {
     "t": "p",
-    "html": "Constraints can be <strong>column level</strong> (applies to a single column) or <strong>table level</strong> (applies to the whole table)."
+    "html": "Constraints can be <strong> column level </strong> (applies to a single column) or <strong> table level </strong> (applies to the whole table)."
    },
    {
     "t": "h2",
@@ -3233,12 +3233,12 @@
    {
     "t": "ul",
     "items": [
-     "<strong>NOT NULL</strong> - Ensures that a column cannot have a NULL value",
-     "<strong>UNIQUE</strong> - Ensures that all values in a column are different",
-     "<strong>PRIMARY KEY</strong> - A combination of NOT NULL and UNIQUE. Uniquely identifies each row in a table",
-     "<strong>FOREIGN KEY</strong> - Prevents actions that would destroy links between tables",
-     "<strong>CHECK</strong> - Ensures that the values in a column satisfy a specific condition",
-     "<strong>DEFAULT</strong> - Sets a default value for a column if no value is specified"
+     "<strong> NOT NULL </strong> - Ensures that a column cannot have a NULL value",
+     "<strong> UNIQUE </strong> - Ensures that all values in a column are different",
+     "<strong> PRIMARY KEY </strong> - A combination of NOT NULL and UNIQUE . Uniquely identifies each row in a table",
+     "<strong> FOREIGN KEY </strong> - Prevents actions that would destroy links between tables",
+     "<strong> CHECK </strong> - Ensures that the values in a column satisfy a specific condition",
+     "<strong> DEFAULT </strong> - Sets a default value for a column if no value is specified"
     ]
    }
   ]
@@ -3259,7 +3259,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>NOT NULL</strong> constraint enforces a column to NOT accept NULL values."
+    "html": "The <strong> NOT NULL </strong> constraint enforces a column to NOT accept NULL values."
    },
    {
     "t": "p",
@@ -3271,7 +3271,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL ensures that the \"ID\", \"LastName\", and \"FirstName\" columns will NOT accept NULL values when creating the \"Persons\" table:"
+    "html": "The following SQL ensures that the \"ID\", \"LastName\", and \"FirstName\"columns will NOT accept NULL values when creating the\"Persons\" table:"
    },
    {
     "t": "code",
@@ -3309,7 +3309,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>UNIQUE</strong> constraint ensures that all values in a column are different."
+    "html": "The <strong> UNIQUE </strong> constraint ensures that all values in a column are different."
    },
    {
     "t": "p",
@@ -3325,7 +3325,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL creates a UNIQUE constraint on the \"ID\" column when the \"Persons\" table is created:"
+    "html": "The following SQL creates a UNIQUE constraint on the \"ID\"column when the\"Persons\" table is created:"
    },
    {
     "t": "code",
@@ -3365,7 +3365,7 @@
    },
    {
     "t": "h2",
-    "text": "Drop a UNIQUE Constraint"
+    "text": "Drop to UNIQUE Constraint"
    },
    {
     "t": "p",
@@ -3390,15 +3390,15 @@
    },
    {
     "t": "p",
-    "html": "The <strong>PRIMARY KEY</strong> constraint uniquely identifies each record in a table."
+    "html": "The <strong> PRIMARY KEY </strong> constraint uniquely identifies each record in a table."
    },
    {
     "t": "p",
-    "html": "Primary keys must contain <strong>UNIQUE</strong> values, and cannot contain <strong>NULL</strong> values."
+    "html": "Primary keys must contain <strong> UNIQUE </strong> values, and cannot contain <strong> NULL </strong> values."
    },
    {
     "t": "p",
-    "html": "A table can have only <strong>ONE</strong> primary key; this primary key can consist of single or multiple columns (fields)."
+    "html": "A table can have only <strong> ONE </strong> primary key; this primary key can consist of single or multiple columns (fields)."
    },
    {
     "t": "h2",
@@ -3406,7 +3406,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL creates a PRIMARY KEY on the \"ID\" column when the \"Persons\" table is created:"
+    "html": "The following SQL creates a PRIMARY KEY on the \"ID\"column when the\"Persons\" table is created:"
    },
    {
     "t": "code",
@@ -3442,11 +3442,11 @@
    },
    {
     "t": "p",
-    "html": "<em>Note:</em> If you use ALTER TABLE to add a primary key, the primary key column(s) must have been declared NOT NULL when the table was first created."
+    "html": "<em> Note: </em> If you use ALTER TABLE to add a primary key, the primary key column(s) must have been declared NOT NULL when the table was first created."
    },
    {
     "t": "h2",
-    "text": "Drop a PRIMARY KEY Constraint"
+    "text": "Drop to PRIMARY KEY Constraint"
    },
    {
     "t": "code",
@@ -3467,15 +3467,15 @@
    },
    {
     "t": "p",
-    "html": "The <strong>FOREIGN KEY</strong> constraint is used to prevent actions that would destroy links between tables."
+    "html": "The <strong> FOREIGN KEY </strong> constraint is used to prevent actions that would destroy links between tables."
    },
    {
     "t": "p",
-    "html": "A FOREIGN KEY is a field (or collection of fields) in one table that refers to the <strong>PRIMARY KEY</strong> in another table."
+    "html": "A FOREIGN KEY is a field (or collection of fields) in one table that refers to the <strong> PRIMARY KEY </strong> in another table."
    },
    {
     "t": "p",
-    "html": "The table with the foreign key is called the <strong>child table</strong>, and the table with the primary key is called the <strong>referenced</strong> or <strong>parent table</strong>."
+    "html": "The table with the foreign key is called the <strong> child table </strong> , and the table with the primary key is called the <strong> referenced </strong> or <strong> parent table </strong> ."
    },
    {
     "t": "p",
@@ -3487,7 +3487,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL creates a FOREIGN KEY on the \"PersonID\" column when the \"Orders\" table is created:"
+    "html": "The following SQL creates a FOREIGN KEY on the \"PersonID\"column when the\"Orders\" table is created:"
    },
    {
     "t": "code",
@@ -3523,7 +3523,7 @@
    },
    {
     "t": "h2",
-    "text": "Drop a FOREIGN KEY Constraint"
+    "text": "Drop to FOREIGN KEY Constraint"
    },
    {
     "t": "code",
@@ -3544,7 +3544,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>CHECK</strong> constraint is used to limit the value range that can be placed in a column."
+    "html": "The <strong> CHECK </strong> constraint is used to limit the value range that can be placed in a column."
    },
    {
     "t": "p",
@@ -3560,7 +3560,7 @@
    },
    {
     "t": "p",
-    "html": "The following SQL creates a CHECK constraint on the \"Age\" column when the \"Persons\" table is created. The CHECK constraint ensures that the age of a person must be 18 or older:"
+    "html": "The following SQL creates a CHECK constraint on the \"Age\"column when the\"Persons\" table is created. The CHECK constraint ensures that the age of a person must be 18 or older:"
    },
    {
     "t": "code",
@@ -3596,7 +3596,7 @@
    },
    {
     "t": "h2",
-    "text": "Drop a CHECK Constraint"
+    "text": "Drop to CHECK Constraint"
    },
    {
     "t": "code",
@@ -3617,7 +3617,7 @@
    },
    {
     "t": "p",
-    "html": "The <strong>DEFAULT</strong> constraint is used to set a default value for a column."
+    "html": "The <strong> DEFAULT </strong> constraint is used to set a default value for a column."
    },
    {
     "t": "p",
@@ -3629,7 +3629,7 @@
    },
    {
     "t": "p",
-    "html": "Set a default value for the \"City\" column when creating the \"Persons\" table:"
+    "html": "Set a default value for the \"City\"column when creating the\"Persons\" table:"
    },
    {
     "t": "code",
@@ -3638,7 +3638,7 @@
    },
    {
     "t": "p",
-    "html": "DEFAULT can also use system values like <code>current_timestamp</code>:"
+    "html": "DEFAULT can also use system values like <code> current_timestamp </code> :"
    },
    {
     "t": "code",
@@ -3660,7 +3660,7 @@
    },
    {
     "t": "h2",
-    "text": "Drop a DEFAULT Constraint"
+    "text": "Drop to DEFAULT Constraint"
    },
    {
     "t": "code",
@@ -3741,7 +3741,7 @@
    },
    {
     "t": "p",
-    "html": "<strong>Note:</strong> Updating a table with indexes takes more time than updating a table without, because indexes also need updating. Only create indexes on columns that will be frequently searched against."
+    "html": "<strong> Note: </strong> Updating a table with indexes takes more time than updating a table without, because indexes also need updating. Only create indexes on columns that will be frequently searched against."
    },
    {
     "t": "h2",
@@ -3767,7 +3767,7 @@
    },
    {
     "t": "p",
-    "html": "Create an index on multiple columns (last_name + first_name):"
+    "html": "Create an index on multiple columns ( last_name + first_name ):"
    },
    {
     "t": "code",

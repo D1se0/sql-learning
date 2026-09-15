@@ -153,7 +153,14 @@ for (const file of files.sort()) {
         const items = el.querySelectorAll('li').map(li => li.innerHTML.replace(/\r?\n\s+/g, ' ').trim())
         if (items.length) out.push({ t: 'ul', items })
       } else if (tag === 'pre') {
-        const code = el.text.replace(/^\r?\n/, '').replace(/\s+$/, '')
+        // el HTML original a veces trae el wrapper <code> escapado como texto y CRLF:
+        // se limpia para que el bloque sea SQL puro
+        const code = el.text
+          .replace(/\r\n/g, '\n')
+          .replace(/^\s*<code[^>]*>/, '')
+          .replace(/<\/code>\s*$/, '')
+          .replace(/^\n+/, '')
+          .replace(/\s+$/, '')
         if (code) out.push({ t: 'code', lang: 'sql', text: code })
       } else if (tag === 'img') {
         out.push({ t: 'img', src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' })

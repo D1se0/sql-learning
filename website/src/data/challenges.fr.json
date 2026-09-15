@@ -1,0 +1,82 @@
+[
+ {
+  "id": "c1",
+  "level": "fácil",
+  "title": "Premières rangées",
+  "brief": "Renvoie le prénom et le nom des 5 premiers patients commandés par patient_id .",
+  "hint": "SELECT ... FROM patients ORDER BY ... LIMIT ...",
+  "solution": "SELECT first_name, last_name FROM patients ORDER BY patient_id LIMIT 5"
+ },
+ {
+  "id": "c2",
+  "level": "fácil",
+  "title": "Filtrer par ville",
+  "brief": "Patients de Madrid, classés par ordre alphabétique de nom de famille.",
+  "hint": "WHERE ville = ... ORDER BY ...",
+  "solution": "SELECT first_name, last_name, city FROM patients WHERE city = 'Madrid' ORDER BY last_name"
+ },
+ {
+  "id": "c3",
+  "level": "fácil",
+  "title": "Compter les entrées",
+  "brief": "Combien y a-t-il d'admissions au total ?",
+  "hint": "COUNT (*) concernant les admissions.",
+  "solution": "SELECT COUNT(*) FROM admissions"
+ },
+ {
+  "id": "c4",
+  "level": "medio",
+  "title": "Moyenne par spécialité",
+  "brief": "Salaire moyen des médecins par spécialité, arrondi à 2 décimales.",
+  "hint": "GROUP BY spécialité + ROUND ( AVG (...), 2).",
+  "solution": "SELECT specialty, ROUND(AVG(salary),2) AS avg_salary FROM doctors GROUP BY specialty"
+ },
+ {
+  "id": "c5",
+  "level": "medio",
+  "title": "Patients admis maintenant",
+  "brief": "Admissions sans date de sortie ( discharge_date IS NULL ) avec nom du patient.",
+  "hint": "JOIN patients + IS NULL .",
+  "solution": "SELECT p.first_name, p.last_name, a.admission_date, a.diagnosis\nFROM admissions a\nJOIN patients p ON p.patient_id = a.patient_id\nWHERE a.discharge_date IS NULL"
+ },
+ {
+  "id": "c6",
+  "level": "medio",
+  "title": "LIKE avec motif",
+  "brief": "Patients dont le numéro de téléphone se termine par « 011 » (modèle).",
+  "hint": "LIKE '%011'.",
+  "solution": "SELECT first_name, last_name, phone FROM patients WHERE phone LIKE '%011'"
+ },
+ {
+  "id": "c7",
+  "level": "medio",
+  "title": "Plage de poids",
+  "brief": "Patients pesant entre 55 et 65 kg, classés par poids décroissant.",
+  "hint": "BETWEEN + ORDER BY ... DESC .",
+  "solution": "SELECT first_name, last_name, weight FROM patients WHERE weight BETWEEN 55 AND 65 ORDER BY weight DESC"
+ },
+ {
+  "id": "c8",
+  "level": "difícil",
+  "title": "Chiffre d'affaires par département",
+  "brief": "Nom du département et nombre d'admissions, uniquement ceux qui en comptent plus de 3, classés par décompte desc.",
+  "hint": "JOIN départements + GROUP BY + HAVING COUNT (*) > 3.",
+  "solution": "SELECT d.name, COUNT(*) AS ingresos\nFROM admissions a\nJOIN departments d ON d.department_id = a.department_id\nGROUP BY d.name\nHAVING COUNT(*) > 3\nORDER BY ingresos DESC"
+ },
+ {
+  "id": "c9",
+  "level": "difícil",
+  "title": "Fenêtre : classement par poids",
+  "brief": "Nom, poids et ROW_NUMBER() OVER ( ORDER BY poids DESC ) des patients.",
+  "hint": "Fonction fenêtre sans PARTITION , seulement ORDER BY .",
+  "solution": "SELECT first_name, weight,\n  ROW_NUMBER() OVER (ORDER BY weight DESC) AS rn\nFROM patients"
+ },
+ {
+  "id": "c10",
+  "level": "difícil",
+  "title": "Sous-requête avec agrégat",
+  "brief": "Patients dont le poids est supérieur à la moyenne mondiale (sous-requête en WHERE ).",
+  "hint": "WHERE poids > ( SELECT AVG (poids) ...).",
+  "solution": "SELECT first_name, last_name, weight\nFROM patients\nWHERE weight > (SELECT AVG(weight) FROM patients)\nORDER BY weight DESC"
+ }
+]

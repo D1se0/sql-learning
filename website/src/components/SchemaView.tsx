@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Database, ExternalLink, Play, RotateCcw } from 'lucide-react'
-import { getSchema, initEngine, isReady, resetDatabase, runQuery, type TableInfo } from '../lib/sqlEngine'
-import { setPendingSql } from '../lib/store'
-import { navigate } from '../lib/store'
+import { getSchema, initEngine, isReady, resetDatabase, type TableInfo } from '../lib/sqlEngine'
+import { setPendingSql, navigate } from '../lib/store'
+import { useI18n } from '../i18n/i18n'
 import { Reveal, ResultTable } from './ui'
 
 export function SchemaView() {
+  const { t } = useI18n()
   const [tables, setTables] = useState<TableInfo[]>([])
   const [ready, setReady] = useState(isReady())
 
@@ -33,23 +34,21 @@ export function SchemaView() {
           <div>
             <p className="section-tag mb-2">// playground › referencia</p>
             <h1 className="text-4xl font-extrabold text-white tracking-tight">
-              Esquema de la DB<span className="text-accent">_</span>
+              {t('tool.title.schema')}<span className="text-accent">_</span>
             </h1>
-            <p className="text-grey mt-2 text-sm">
-              Base ficticia <span className="font-mono text-ink">hospital_lab.db</span> — 5 tablas relacionadas, cargada en SQLite (WASM) en tu navegador.
-            </p>
+            <p className="text-grey mt-2 text-sm" dangerouslySetInnerHTML={{ __html: t('schema.subtitle') }} />
           </div>
           <button onClick={doReset} className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 rounded-md border border-edge text-grey hover:text-accent hover:border-accent/50 transition-colors self-start">
-            <RotateCcw className="w-3.5 h-3.5" /> restaurar DB
+            <RotateCcw className="w-3.5 h-3.5" /> {t('schema.reset')}
           </button>
         </div>
       </Reveal>
 
-      {!ready && <div className="font-mono text-xs text-grey/60">cargando motor SQLite…</div>}
+      {!ready && <div className="font-mono text-xs text-grey/60">{t('pg.loading')}</div>}
 
       <div className="grid md:grid-cols-2 gap-5">
-        {tables.map((t, i) => (
-          <Reveal key={t.name} delay={Math.min(i * 0.07, 0.35)}>
+        {tables.map((tb, i) => (
+          <Reveal key={tb.name} delay={Math.min(i * 0.07, 0.35)}>
             <div className="card !bg-panel/80 overflow-hidden">
               <div className="flex items-center justify-between px-5 py-4 border-b border-edge">
                 <div className="flex items-center gap-2.5">
@@ -57,13 +56,13 @@ export function SchemaView() {
                     <Database className="w-4 h-4" />
                   </span>
                   <div>
-                    <div className="font-mono text-sm text-white font-bold">{t.name}</div>
-                    <div className="font-mono text-[10px] text-grey">{t.rowCount} filas · {t.columns.length} columnas</div>
+                    <div className="font-mono text-sm text-white font-bold">{tb.name}</div>
+                    <div className="font-mono text-[10px] text-grey">{tb.rowCount} {t('schema.rows')} · {tb.columns.length} {t('schema.columns')}</div>
                   </div>
                 </div>
                 <button
-                  onClick={() => quick(`SELECT * FROM ${t.name};`)}
-                  title="Hacer SELECT * en el playground"
+                  onClick={() => quick(`SELECT * FROM ${tb.name};`)}
+                  title={t('schema.quick.title')}
                   className="p-2 rounded-md border border-edge text-grey hover:text-green-400 hover:border-green-400/50 transition-colors"
                 >
                   <Play className="w-3.5 h-3.5" />
@@ -71,7 +70,7 @@ export function SchemaView() {
               </div>
               <div className="p-4">
                 <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-1.5 font-mono text-xs mb-4">
-                  {t.columns.map(c => (
+                  {tb.columns.map(c => (
                     <div key={c.name} className="contents">
                       <span className="flex items-center gap-2">
                         <span className={c.pk ? 'text-accent font-bold' : 'text-ink'}>{c.name}</span>
@@ -82,13 +81,13 @@ export function SchemaView() {
                     </div>
                   ))}
                 </div>
-                <div className="font-mono text-[10px] text-grey/60 mb-1.5 uppercase tracking-widest">muestra (5)</div>
-                <ResultTable columns={t.sample.columns} rows={t.sample.rows} maxH="max-h-48" />
+                <div className="font-mono text-[10px] text-grey/60 mb-1.5 uppercase tracking-widest">{t('schema.sample')}</div>
+                <ResultTable columns={tb.sample.columns} rows={tb.sample.rows} maxH="max-h-48" />
                 <button
-                  onClick={() => quick(`SELECT * FROM ${t.name};`)}
+                  onClick={() => quick(`SELECT * FROM ${tb.name};`)}
                   className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] text-accent hover:underline"
                 >
-                  <ExternalLink className="w-3 h-3" /> consultar en el playground
+                  <ExternalLink className="w-3 h-3" /> {t('schema.query')}
                 </button>
               </div>
             </div>
@@ -99,7 +98,7 @@ export function SchemaView() {
       {/* diagrama rápido de relaciones */}
       <Reveal delay={0.1}>
         <div className="card !bg-panel/60 p-6 mt-8">
-          <h3 className="text-white font-bold mb-3">Relaciones (FK)</h3>
+          <h3 className="text-white font-bold mb-3">{t('schema.fk')}</h3>
           <div className="font-mono text-xs text-grey space-y-1.5">
             <div><span className="text-ink">admissions.patient_id</span> <span className="text-accent">→</span> <span className="text-ink">patients.patient_id</span></div>
             <div><span className="text-ink">admissions.doctor_id</span> <span className="text-accent">→</span> <span className="text-ink">doctors.doctor_id</span></div>

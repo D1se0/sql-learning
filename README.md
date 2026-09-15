@@ -16,6 +16,7 @@ Guía interactiva para **aprender y practicar SQL** en el navegador: cheatsheet 
 | **Playground SQL** | Editor con `Ctrl+Enter` para ejecutar sobre una **DB SQLite real en tu navegador** (sql.js/WASM, sin backend): 5 tablas relacionadas con datos ficticios de un hospital |
 | **Retos** | 10 desafíos (fácil → difícil) con **validación por result-set**: tu query se compara contra la solución ejecutando ambas en SQLite, no comparando texto. Progreso guardado en localStorage |
 | **Esquema DB** | Explorador de tablas: columnas, PK/NN, conteo de filas, muestras y atajos para consultar cada tabla |
+| **5 idiomas** | Interfaz y contenidos en **ES · EN · FR · DE · PT** con selector en el header (bandera), persistencia y detección del navegador. Los comandos SQL y ejemplos de código **nunca se traducen** |
 | **Búsqueda global** | `Ctrl+K` sobre temas, comandos SQL (`GROUP BY`, `COUNT()`…) y keywords, con navegación por teclado |
 
 ## 🗄️ Base de datos de práctica (`hospital_lab.db`)
@@ -88,3 +89,23 @@ MIT — ver historial del repo.
 
 - El sidebar replica **exactamente** la estructura del cheatsheet original: **Query Basics (6) · Query Filtering (16) · Functions (25, con Aggregate / Window / String / Numeric › Math / Date) · Tables (13)**.
 - Despliegue de la v2: **Actions → "Deploy website a GitHub Pages" → Run workflow** con branch `v2`. El workflow de esta rama es solo `workflow_dispatch` para no pisar el sitio de producción (main).
+
+## 🌍 Multiidioma (i18n)
+
+La web está traducida a **5 idiomas**: español (por defecto), inglés, francés, alemán y portugués. El selector de idioma está en el header (botón con la bandera); la preferencia se guarda en `localStorage` y, si nunca has elegido, se detecta del navegador.
+
+**Qué se traduce y qué no:**
+
+| Se traduce ✅ | No se traduce ❌ |
+|---|---|
+| Títulos de secciones y botones | Comandos y keywords SQL (`SELECT`, `GROUP BY`…) |
+| Explicaciones del cheatsheet (60 temas) | Ejemplos de código y soluciones de los retos |
+| Enunciados y pistas de los retos | Identificadores (`first_name`, `patient_id`…) |
+| Placeholder y resultados de búsqueda | Nombres de tablas/esquema (`patients`, `hospital_lab.db`) |
+| Frases del hero y textos de guía | Tags HTML y clases de estilo |
+
+**Cómo funciona por dentro:**
+
+- ES viaja en el bundle inicial; los otros idiomas se descargan **bajo demanda** (code-splitting por idioma: `topics.en.js`, `dict.de.js`…). Cambiar de idioma solo descarga ~35 kB gzip la primera vez.
+- La traducción del contenido se genera **build-time** con `tools/translate-all.mjs` (API pública de Google Translate), protegiendo SQL/HTML/identificadores con tokens `⟨i⟩` para que nunca se toquen.
+- Para regenerar traducciones: `node tools/extract.mjs && node tools/mkchallenges.mjs && node tools/translate-all.mjs` (desde `tools/`).

@@ -1,0 +1,82 @@
+[
+ {
+  "id": "c1",
+  "level": "fácil",
+  "title": "Primeiras linhas",
+  "brief": "Retorna o nome e o sobrenome dos primeiros 5 pacientes solicitados por patient_id .",
+  "hint": "SELECT ... FROM pacientes ORDER BY ... LIMIT ...",
+  "solution": "SELECT first_name, last_name FROM patients ORDER BY patient_id LIMIT 5"
+ },
+ {
+  "id": "c2",
+  "level": "fácil",
+  "title": "Filtrar por cidade",
+  "brief": "Pacientes de Madrid, organizados em ordem alfabética por sobrenome.",
+  "hint": "WHERE cidade = ... ORDER BY ...",
+  "solution": "SELECT first_name, last_name, city FROM patients WHERE city = 'Madrid' ORDER BY last_name"
+ },
+ {
+  "id": "c3",
+  "level": "fácil",
+  "title": "Contar admissões",
+  "brief": "Quantas admissões existem no total?",
+  "hint": "COUNT (*) sobre admissões.",
+  "solution": "SELECT COUNT(*) FROM admissions"
+ },
+ {
+  "id": "c4",
+  "level": "medio",
+  "title": "Média por especialidade",
+  "brief": "Salário médio dos médicos por especialidade, arredondado às 2 casas decimais.",
+  "hint": "GROUP BY especialidade + ROUND ( AVG (...), 2).",
+  "solution": "SELECT specialty, ROUND(AVG(salary),2) AS avg_salary FROM doctors GROUP BY specialty"
+ },
+ {
+  "id": "c5",
+  "level": "medio",
+  "title": "Pacientes internados agora",
+  "brief": "Admissões sem data de alta ( discharge_date IS NULL ) com nome do paciente.",
+  "hint": "JOIN pacientes + IS NULL .",
+  "solution": "SELECT p.first_name, p.last_name, a.admission_date, a.diagnosis\nFROM admissions a\nJOIN patients p ON p.patient_id = a.patient_id\nWHERE a.discharge_date IS NULL"
+ },
+ {
+  "id": "c6",
+  "level": "medio",
+  "title": "LIKE com padrão",
+  "brief": "Pacientes cujo número de telefone termina em \"011\" (padrão).",
+  "hint": "LIKE '%011'.",
+  "solution": "SELECT first_name, last_name, phone FROM patients WHERE phone LIKE '%011'"
+ },
+ {
+  "id": "c7",
+  "level": "medio",
+  "title": "Faixa de peso",
+  "brief": "Pacientes com peso entre 55 e 65 kg, ordenados por peso decrescente.",
+  "hint": "BETWEEN + ORDER BY ... DESC .",
+  "solution": "SELECT first_name, last_name, weight FROM patients WHERE weight BETWEEN 55 AND 65 ORDER BY weight DESC"
+ },
+ {
+  "id": "c8",
+  "level": "difícil",
+  "title": "Receita por departamento",
+  "brief": "Nome do departamento e número de admissões, somente aquelas com mais de 3, ordenadas por contagem desc.",
+  "hint": "JOIN departamentos + GROUP BY + HAVING COUNT (*) > 3.",
+  "solution": "SELECT d.name, COUNT(*) AS ingresos\nFROM admissions a\nJOIN departments d ON d.department_id = a.department_id\nGROUP BY d.name\nHAVING COUNT(*) > 3\nORDER BY ingresos DESC"
+ },
+ {
+  "id": "c9",
+  "level": "difícil",
+  "title": "Janela: classificação por peso",
+  "brief": "Nome, peso e ROW_NUMBER() OVER ( ORDER BY peso DESC ) dos pacientes.",
+  "hint": "Função de janela sem PARTITION , apenas ORDER BY .",
+  "solution": "SELECT first_name, weight,\n  ROW_NUMBER() OVER (ORDER BY weight DESC) AS rn\nFROM patients"
+ },
+ {
+  "id": "c10",
+  "level": "difícil",
+  "title": "Subconsulta com agregação",
+  "brief": "Pacientes cujo peso está acima da média global (subconsulta em WHERE ).",
+  "hint": "WHERE peso > ( SELECT AVG (peso) ...).",
+  "solution": "SELECT first_name, last_name, weight\nFROM patients\nWHERE weight > (SELECT AVG(weight) FROM patients)\nORDER BY weight DESC"
+ }
+]
