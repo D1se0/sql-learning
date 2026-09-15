@@ -40,7 +40,7 @@ export function TopicView({ id }: { id: string }) {
           <ArrowLeft className="w-3.5 h-3.5" /> cheatsheet
         </button>
         <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <p className="section-tag mb-2">// {topic.cat} › {topic.sub}</p>
+          <p className="section-tag mb-2">{topic.sub ? `// ${topic.cat} › ${topic.sub}` : `// ${topic.cat}`}</p>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             {topic.title}<span className="text-accent">_</span>
           </h1>

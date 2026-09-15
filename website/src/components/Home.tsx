@@ -110,7 +110,7 @@ function HeroTerminal() {
 }
 
 /* ---------- home ---------- */
-const CATS = ['Todas', 'Básicas', 'Filtrado', 'Funciones', 'Tablas'] as const
+const CATS = ['Todas', 'Query Basics', 'Query Filtering', 'Functions', 'Tables'] as const
 
 export function Home({ onSearch }: { onSearch: () => void }) {
   const [filter, setFilter] = useState<(typeof CATS)[number]>('Todas')
@@ -238,7 +238,7 @@ export function Home({ onSearch }: { onSearch: () => void }) {
               <button onClick={() => open(t.id)} className="card w-full text-left p-5 group relative overflow-hidden">
                 {visited.has(t.id) && <CheckCircle2 className="w-4 h-4 text-green-400 absolute top-4 right-4" />}
                 <span className="font-mono text-[10px] text-grey/50 border-b border-l border-edge rounded-bl-lg px-2 py-0.5 bg-base/60 absolute top-3 right-3">
-                  {t.cat} › {t.sub}
+                  {t.sub ? `${t.cat} › ${t.sub}` : t.cat}
                 </span>
                 <div className="w-10 h-10 rounded-lg bg-accent/15 border border-accent/40 flex items-center justify-center text-accent mb-3 group-hover:scale-105 group-hover:shadow-glow transition-all">
                   <Layers className="w-4 h-4" />

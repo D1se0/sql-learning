@@ -1,11 +1,8 @@
 name: Deploy website a GitHub Pages
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'website/**'
-      - '.github/workflows/pages.yml'
+  # Solo manual: el sitio de producción (main) es la página original;
+  # la v2 (React) se despliega ejecutando este workflow en la rama v2.
   workflow_dispatch:
 
 permissions:

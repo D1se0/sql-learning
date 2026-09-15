@@ -29,14 +29,21 @@ function TopicLink({ t, route, go }: { t: Topic; route: Route; go: (r: Route) =>
   )
 }
 
-function SubGroup({ label, topics, route, go }: {
+function SubGroup({ label, topics, route, go, nested = [] }: {
   label: string
   topics: Topic[]
   route: Route
   go: (r: Route) => void
+  nested?: { label: string; topics: Topic[] }[]
 }) {
-  const activeInside = route.view === 'topic' && topics.some(t => t.id === route.id)
+  const activeInside =
+    route.view === 'topic' &&
+    (topics.some(t => t.id === route.id) ||
+      nested.some(n => n.topics.some(t => t.id === route.id)))
   const [open, setOpen] = useState(activeInside)
+  useEffect(() => {
+    if (activeInside) setOpen(true)
+  }, [activeInside])
   return (
     <div>
       <button
@@ -61,6 +68,9 @@ function SubGroup({ label, topics, route, go }: {
             <div className="pl-4 py-0.5 space-y-0.5">
               {topics.map(t => (
                 <TopicLink key={t.id} t={t} route={route} go={go} />
+              ))}
+              {nested.map(n => (
+                <SubGroup key={n.label} label={n.label} topics={n.topics} route={route} go={go} />
               ))}
             </div>
           </motion.div>
@@ -95,7 +105,9 @@ function buildSearchIndex(): SearchItem[] {
 }
 
 /* ---------- estructura del sidebar ---------- */
-const CAT_ORDER = ['Básicas', 'Filtrado', 'Funciones', 'Tablas'] as const
+const CAT_ORDER = ['Query Basics', 'Query Filtering', 'Functions', 'Tables'] as const
+// orden de subgrupos de Functions + anidamiento (Math dentro de Numeric), como el sidebar original
+const SUB_ORDER = ['Aggregate', 'Window', 'String', 'Numeric', 'Date']
 
 function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
   route: Route
@@ -161,14 +173,14 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
           {CAT_ORDER.map(cat => {
             const topics = groups.get(cat) ?? []
             const open = openCats.has(cat)
-            // subgrupos solo para "Funciones" (Agregación, Window, Cadena, Numéricas, Fecha), como el original
+            // subgrupos solo en Functions (Aggregate, Window, String, Numeric›Math, Date), como el original
             const subgroups = new Map<string, typeof TOPICS>()
             for (const t of topics) {
-              const s = cat === 'Funciones' ? t.sub : ''
+              const s = cat === 'Functions' ? t.sub : ''
               if (!subgroups.has(s)) subgroups.set(s, [])
               subgroups.get(s)!.push(t)
             }
-            const hasSubs = cat === 'Funciones'
+            const hasSubs = cat === 'Functions'
             return (
               <div key={cat} className="mb-1.5">
                 <button
@@ -192,9 +204,23 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
                     >
                       <div className="pl-4 py-1 space-y-0.5">
                         {hasSubs
-                          ? [...subgroups.entries()].map(([sub, ts]) => (
-                              <SubGroup key={sub} label={sub} topics={ts} route={route} go={go} />
-                            ))
+                          ? SUB_ORDER.filter(s => subgroups.has(s) || s === 'Numeric').map(s => {
+                              // Math se renderiza anidado dentro de Numeric, como el original
+                              const nested =
+                                s === 'Numeric' && subgroups.has('Math')
+                                  ? [{ label: 'Math', topics: subgroups.get('Math')! }]
+                                  : []
+                              return (
+                                <SubGroup
+                                  key={s}
+                                  label={s}
+                                  topics={subgroups.get(s) ?? []}
+                                  route={route}
+                                  go={go}
+                                  nested={nested}
+                                />
+                              )
+                            })
                           : topics.map(t => <TopicLink key={t.id} t={t} route={route} go={go} />)}
                       </div>
                     </motion.div>

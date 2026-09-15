@@ -2,8 +2,8 @@
  {
   "id": "start",
   "title": "Introducción a SQL",
-  "cat": "Básicas",
-  "sub": "Statements",
+  "cat": "Query Basics",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -40,8 +40,8 @@
  {
   "id": "select",
   "title": "SELECT",
-  "cat": "Básicas",
-  "sub": "Statements",
+  "cat": "Query Basics",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -104,8 +104,8 @@
  {
   "id": "insert",
   "title": "INSERT",
-  "cat": "Básicas",
-  "sub": "Statements",
+  "cat": "Query Basics",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -176,8 +176,8 @@
  {
   "id": "delete",
   "title": "DELETE",
-  "cat": "Básicas",
-  "sub": "Statements",
+  "cat": "Query Basics",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -218,8 +218,8 @@
  {
   "id": "update",
   "title": "UPDATE",
-  "cat": "Básicas",
-  "sub": "Statements",
+  "cat": "Query Basics",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -277,8 +277,8 @@
  {
   "id": "where",
   "title": "WHERE",
-  "cat": "Básicas",
-  "sub": "Statements",
+  "cat": "Query Basics",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -425,8 +425,8 @@
  {
   "id": "operators",
   "title": "Operadores",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -523,8 +523,8 @@
  {
   "id": "order-by",
   "title": "ORDER BY",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -604,8 +604,8 @@
  {
   "id": "like",
   "title": "LIKE",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -721,8 +721,8 @@
  {
   "id": "in",
   "title": "IN",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -790,8 +790,8 @@
  {
   "id": "between",
   "title": "BETWEEN",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -875,8 +875,8 @@
  {
   "id": "join",
   "title": "JOIN",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -985,8 +985,8 @@
  {
   "id": "union",
   "title": "UNION",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1065,8 +1065,8 @@
  {
   "id": "group-by",
   "title": "GROUP BY",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1116,8 +1116,8 @@
  {
   "id": "having",
   "title": "HAVING",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1163,8 +1163,8 @@
  {
   "id": "case",
   "title": "CASE",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1218,8 +1218,8 @@
  {
   "id": "distinct",
   "title": "DISTINCT",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1282,8 +1282,8 @@
  {
   "id": "exists",
   "title": "EXISTS",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1337,8 +1337,8 @@
  {
   "id": "any-all",
   "title": "ANY / ALL",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1423,8 +1423,8 @@
  {
   "id": "ifnull",
   "title": "IFNULL()",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1517,8 +1517,8 @@
  {
   "id": "null-values",
   "title": "Valores NULL",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1588,8 +1588,8 @@
  {
   "id": "aliases",
   "title": "Aliases (AS)",
-  "cat": "Filtrado",
-  "sub": "Cláusulas",
+  "cat": "Query Filtering",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -1652,8 +1652,8 @@
  {
   "id": "count",
   "title": "COUNT()",
-  "cat": "Funciones",
-  "sub": "Agregación",
+  "cat": "Functions",
+  "sub": "Aggregate",
   "blocks": [
    {
     "t": "h1",
@@ -1694,8 +1694,8 @@
  {
   "id": "avg",
   "title": "AVG()",
-  "cat": "Funciones",
-  "sub": "Agregación",
+  "cat": "Functions",
+  "sub": "Aggregate",
   "blocks": [
    {
     "t": "h1",
@@ -1732,8 +1732,8 @@
  {
   "id": "sum",
   "title": "SUM()",
-  "cat": "Funciones",
-  "sub": "Agregación",
+  "cat": "Functions",
+  "sub": "Aggregate",
   "blocks": [
    {
     "t": "h1",
@@ -1770,8 +1770,8 @@
  {
   "id": "max",
   "title": "MAX()",
-  "cat": "Funciones",
-  "sub": "Agregación",
+  "cat": "Functions",
+  "sub": "Aggregate",
   "blocks": [
    {
     "t": "h1",
@@ -1808,8 +1808,8 @@
  {
   "id": "min",
   "title": "MIN()",
-  "cat": "Funciones",
-  "sub": "Agregación",
+  "cat": "Functions",
+  "sub": "Aggregate",
   "blocks": [
    {
     "t": "h1",
@@ -1846,7 +1846,7 @@
  {
   "id": "window-function-basic",
   "title": "Window Functions",
-  "cat": "Funciones",
+  "cat": "Functions",
   "sub": "Window",
   "blocks": [
    {
@@ -1987,7 +1987,7 @@
  {
   "id": "lag",
   "title": "LAG()",
-  "cat": "Funciones",
+  "cat": "Functions",
   "sub": "Window",
   "blocks": [
    {
@@ -2036,7 +2036,7 @@
  {
   "id": "lead",
   "title": "LEAD()",
-  "cat": "Funciones",
+  "cat": "Functions",
   "sub": "Window",
   "blocks": [
    {
@@ -2085,7 +2085,7 @@
  {
   "id": "first-value",
   "title": "FIRST_VALUE()",
-  "cat": "Funciones",
+  "cat": "Functions",
   "sub": "Window",
   "blocks": [
    {
@@ -2133,7 +2133,7 @@
  {
   "id": "last-value",
   "title": "LAST_VALUE()",
-  "cat": "Funciones",
+  "cat": "Functions",
   "sub": "Window",
   "blocks": [
    {
@@ -2181,8 +2181,8 @@
  {
   "id": "concat",
   "title": "CONCAT()",
-  "cat": "Funciones",
-  "sub": "Cadena",
+  "cat": "Functions",
+  "sub": "String",
   "blocks": [
    {
     "t": "h1",
@@ -2233,8 +2233,8 @@
  {
   "id": "len",
   "title": "LEN()",
-  "cat": "Funciones",
-  "sub": "Cadena",
+  "cat": "Functions",
+  "sub": "String",
   "blocks": [
    {
     "t": "h1",
@@ -2285,8 +2285,8 @@
  {
   "id": "upper",
   "title": "UPPER()",
-  "cat": "Funciones",
-  "sub": "Cadena",
+  "cat": "Functions",
+  "sub": "String",
   "blocks": [
    {
     "t": "h1",
@@ -2337,8 +2337,8 @@
  {
   "id": "lower",
   "title": "LOWER()",
-  "cat": "Funciones",
-  "sub": "Cadena",
+  "cat": "Functions",
+  "sub": "String",
   "blocks": [
    {
     "t": "h1",
@@ -2389,8 +2389,8 @@
  {
   "id": "rand",
   "title": "RAND()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Numeric",
   "blocks": [
    {
     "t": "h1",
@@ -2445,8 +2445,8 @@
  {
   "id": "round",
   "title": "ROUND()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Numeric",
   "blocks": [
    {
     "t": "h1",
@@ -2494,8 +2494,8 @@
  {
   "id": "floor",
   "title": "FLOOR()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Numeric",
   "blocks": [
    {
     "t": "h1",
@@ -2542,8 +2542,8 @@
  {
   "id": "ceil",
   "title": "CEIL()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Numeric",
   "blocks": [
    {
     "t": "h1",
@@ -2590,8 +2590,8 @@
  {
   "id": "abs",
   "title": "ABS()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Math",
   "blocks": [
    {
     "t": "h1",
@@ -2638,8 +2638,8 @@
  {
   "id": "power",
   "title": "POWER()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Math",
   "blocks": [
    {
     "t": "h1",
@@ -2691,8 +2691,8 @@
  {
   "id": "sqrt",
   "title": "SQRT()",
-  "cat": "Funciones",
-  "sub": "Numéricas",
+  "cat": "Functions",
+  "sub": "Math",
   "blocks": [
    {
     "t": "h1",
@@ -2738,9 +2738,9 @@
  },
  {
   "id": "current_timestamp",
-  "title": "current_timestamp",
-  "cat": "Funciones",
-  "sub": "Fecha",
+  "title": "CURRENT_TIMESTAMP",
+  "cat": "Functions",
+  "sub": "Date",
   "blocks": [
    {
     "t": "h1",
@@ -2772,8 +2772,8 @@
  {
   "id": "year",
   "title": "YEAR()",
-  "cat": "Funciones",
-  "sub": "Fecha",
+  "cat": "Functions",
+  "sub": "Date",
   "blocks": [
    {
     "t": "h1",
@@ -2820,8 +2820,8 @@
  {
   "id": "month",
   "title": "MONTH()",
-  "cat": "Funciones",
-  "sub": "Fecha",
+  "cat": "Functions",
+  "sub": "Date",
   "blocks": [
    {
     "t": "h1",
@@ -2868,8 +2868,8 @@
  {
   "id": "day",
   "title": "DAY()",
-  "cat": "Funciones",
-  "sub": "Fecha",
+  "cat": "Functions",
+  "sub": "Date",
   "blocks": [
    {
     "t": "h1",
@@ -2916,8 +2916,8 @@
  {
   "id": "datatypes",
   "title": "Tipos de datos",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3011,8 +3011,8 @@
  {
   "id": "create-table",
   "title": "CREATE TABLE",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3075,8 +3075,8 @@
  {
   "id": "drop-table",
   "title": "DROP TABLE",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3117,8 +3117,8 @@
  {
   "id": "alter-table",
   "title": "ALTER TABLE",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3190,8 +3190,8 @@
  {
   "id": "constraint",
   "title": "CONSTRAINTS",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3246,8 +3246,8 @@
  {
   "id": "not-null",
   "title": "NOT NULL",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3300,8 +3300,8 @@
  {
   "id": "unique",
   "title": "UNIQUE",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3381,8 +3381,8 @@
  {
   "id": "primary-key",
   "title": "PRIMARY KEY",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3458,8 +3458,8 @@
  {
   "id": "foreign-key",
   "title": "FOREIGN KEY",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3535,8 +3535,8 @@
  {
   "id": "check",
   "title": "CHECK",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3608,8 +3608,8 @@
  {
   "id": "default",
   "title": "DEFAULT",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3672,8 +3672,8 @@
  {
   "id": "auto-increment",
   "title": "AUTO INCREMENT",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",
@@ -3728,8 +3728,8 @@
  {
   "id": "index-sql",
   "title": "INDEX",
-  "cat": "Tablas",
-  "sub": "DDL & Constraints",
+  "cat": "Tables",
+  "sub": "",
   "blocks": [
    {
     "t": "h1",

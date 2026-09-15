@@ -134,7 +134,7 @@ export function SearchPalette({ open, onClose, items }: Props) {
                   <span className="flex-1 min-w-0">
                     <span className="block font-mono text-sm text-ink truncate">{it.title}</span>
                     <span className="block text-[11px] text-grey truncate">
-                      {it.cat} › {it.sub}{it.subtitle ? ` — ${it.subtitle}` : ''}
+                      {it.sub ? `${it.cat} › ${it.sub}` : it.cat}{it.subtitle ? ` — ${it.subtitle}` : ''}
                     </span>
                   </span>
                   {sel === i && <CornerDownLeft className="w-4 h-4 text-accent shrink-0" />}

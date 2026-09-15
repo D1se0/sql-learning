@@ -13,24 +13,27 @@ const { parse } = require2('node-html-parser')
 const outData = path.join(repoRoot, 'website', 'src', 'data')
 fs.mkdirSync(outData, { recursive: true })
 
-// categoría por fichero (misma taxonomía del sidebar original)
+// categoría por fichero — réplica EXACTA del sidebar original (index.html v1):
+// Query Basics · Query Filtering · Functions(→Aggregate/Window/String/Numeric›Math/Date) · Tables
 const CATEGORY = (file) => {
   const agg = ['count', 'avg', 'sum', 'max', 'min']
   const win = ['window-function-basic', 'lag', 'lead', 'first-value', 'last-value']
   const str = ['concat', 'len', 'upper', 'lower']
-  const num = ['rand', 'round', 'floor', 'ceil', 'abs', 'power', 'sqrt']
+  const math = ['abs', 'power', 'sqrt'] // anidado dentro de Numeric, como el original
+  const num = ['rand', 'round', 'floor', 'ceil']
   const date = ['current_timestamp', 'year', 'month', 'day']
   const tables = ['datatypes', 'create-table', 'drop-table', 'alter-table', 'constraint', 'not-null', 'unique', 'primary-key', 'foreign-key', 'check', 'default', 'auto-increment', 'index-sql']
   const filter = ['operators', 'order-by', 'like', 'in', 'between', 'join', 'union', 'group-by', 'having', 'case', 'distinct', 'exists', 'any-all', 'ifnull', 'null-values', 'aliases']
   const base = file.replace('.html', '')
-  if (agg.includes(base)) return { cat: 'Funciones', sub: 'Agregación' }
-  if (win.includes(base)) return { cat: 'Funciones', sub: 'Window' }
-  if (str.includes(base)) return { cat: 'Funciones', sub: 'Cadena' }
-  if (num.includes(base)) return { cat: 'Funciones', sub: 'Numéricas' }
-  if (date.includes(base)) return { cat: 'Funciones', sub: 'Fecha' }
-  if (tables.includes(base)) return { cat: 'Tablas', sub: 'DDL & Constraints' }
-  if (filter.includes(base)) return { cat: 'Filtrado', sub: 'Cláusulas' }
-  return { cat: 'Básicas', sub: 'Statements' }
+  if (agg.includes(base)) return { cat: 'Functions', sub: 'Aggregate' }
+  if (win.includes(base)) return { cat: 'Functions', sub: 'Window' }
+  if (str.includes(base)) return { cat: 'Functions', sub: 'String' }
+  if (math.includes(base)) return { cat: 'Functions', sub: 'Math' }
+  if (num.includes(base)) return { cat: 'Functions', sub: 'Numeric' }
+  if (date.includes(base)) return { cat: 'Functions', sub: 'Date' }
+  if (tables.includes(base)) return { cat: 'Tables', sub: '' }
+  if (filter.includes(base)) return { cat: 'Query Filtering', sub: '' }
+  return { cat: 'Query Basics', sub: '' }
 }
 
 // título legible por fichero
@@ -47,7 +50,7 @@ const TITLES = {
   concat: 'CONCAT()', len: 'LEN()', upper: 'UPPER()', lower: 'LOWER()',
   rand: 'RAND()', round: 'ROUND()', floor: 'FLOOR()', ceil: 'CEIL()',
   abs: 'ABS()', power: 'POWER()', sqrt: 'SQRT()',
-  'current-timestamp': 'CURRENT_TIMESTAMP', year: 'YEAR()', month: 'MONTH()', day: 'DAY()',
+  current_timestamp: 'CURRENT_TIMESTAMP', year: 'YEAR()', month: 'MONTH()', day: 'DAY()',
   datatypes: 'Tipos de datos', 'create-table': 'CREATE TABLE', 'drop-table': 'DROP TABLE',
   'alter-table': 'ALTER TABLE', constraint: 'CONSTRAINTS', 'not-null': 'NOT NULL',
   unique: 'UNIQUE', 'primary-key': 'PRIMARY KEY', 'foreign-key': 'FOREIGN KEY',
