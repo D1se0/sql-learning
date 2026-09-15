@@ -1,0 +1,38 @@
+# Publica la página original (raíz del repo) en GitHub Pages.
+# main mantiene el cheatsheet estático; la v2 (React) despliega desde su propia rama
+# ejecutando manualmente su workflow (workflow_dispatch) en esa rama.
+name: Deploy website a GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - name: Subir la raíz del sitio (página original)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
