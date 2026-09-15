@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base text-ink font-sans antialiased;
+}
+
+::selection {
+  background: #ff4b5c;
+  color: #0f1117;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1117;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c2f3a;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4b5c;
+}
+
+@layer components {
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 75, 92, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 75, 92, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 18px rgba(255, 75, 92, 0.55);
+  }
+
+  .section-tag {
+    @apply font-mono text-xs tracking-[0.3em] uppercase;
+    color: #ff4b5c;
+  }
+
+  .card {
+    @apply bg-card/80 border border-edge rounded-xl transition-all duration-300;
+  }
+  .card:hover {
+    @apply border-accent/50;
+    box-shadow: 0 0 24px 0 rgba(255, 75, 92, 0.25);
+  }
+
+  .kbd {
+    @apply inline-flex items-center justify-center min-w-[1.9rem] text-center px-2 py-1 rounded-md border border-edge bg-[#1a1a20] text-xs font-mono text-ink;
+    box-shadow: 0 2px 0 0 #0b0b0e;
+  }
+
+  .chip {
+    @apply px-3 py-1.5 rounded-full border border-edge bg-panel/70 text-xs text-grey backdrop-blur-sm;
+  }
+
+  /* bloques de código del cheatsheet */
+  .sql-code {
+    @apply relative bg-[#1b1f2a] border border-edge rounded-lg p-4 font-mono text-[13px] leading-relaxed overflow-x-auto;
+    box-shadow: inset 0 0 8px rgba(255, 75, 92, 0.15);
+  }
+  .sql-code .kw {
+    @apply text-accent-soft font-semibold;
+  }
+  .sql-code .fn {
+    @apply text-cyan-300;
+  }
+  .sql-code .str {
+    @apply text-green-400;
+  }
+  .sql-code .num {
+    @apply text-orange-300;
+  }
+  .sql-code .com {
+    @apply text-grey/60 italic;
+  }
+}

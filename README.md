@@ -1,49 +1,85 @@
-# SQL Learning Cheatsheet
+# SQL Learning — Cheatsheet + Playground
 
-Bienvenido a **SQL Learning Cheatsheet**, una guía interactiva y visual diseñada para aprender y consultar rápidamente los fundamentos de SQL. Esta página web está organizada como un cheatsheet, ideal para principiantes y desarrolladores que desean repasar conceptos de manera rápida.
+![Version](https://img.shields.io/badge/version-2.0-ff4b5c) ![React](https://img.shields.io/badge/React-18-149eca) ![SQLite](https://img.shields.io/badge/SQLite-WASM-003b57) ![License](https://img.shields.io/badge/license-MIT-green)
 
-## 🚀 Qué encontrarás
+Guía interactiva para **aprender y practicar SQL** en el navegador: cheatsheet de 60 temas, buscador global (`Ctrl+K`), **playground con SQLite real (WASM)**, retos validados automáticamente y explorador del esquema de la base de datos.
 
-- **Query Basics:** SELECT, INSERT, UPDATE, DELETE y WHERE.
-- **Filtrado y Orden:** Operadores, ORDER BY, LIKE, IN, BETWEEN, GROUP BY, HAVING y CASE.
-- **Funciones:** Funciones agregadas (COUNT, SUM, AVG, MAX, MIN), de cadena, numéricas y de fecha.
-- **Tablas y Constraints:** CREATE TABLE, ALTER TABLE, DROP TABLE, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT.
-- **Índices y Auto Increment:** Mejora el rendimiento de consultas y gestión de claves automáticas.
+> 🌐 **Web:** https://d1se0.github.io/sql-learning/
 
-## 💻 Tecnologías utilizadas
+---
 
-- HTML5 y CSS3 con diseño Dark + Rojo.
-- JavaScript para navegación dinámica.
-- PrismJS para resaltado de sintaxis SQL.
+## ✨ Qué incluye
 
-## 🌐 Cómo usarlo
+| Sección | Descripción |
+|---|---|
+| **Cheatsheet** | 60 temas organizados en Básicas · Filtrado · Funciones · Tablas, con resaltado de sintaxis propio y botón "▶ ejecutar en playground" en cada ejemplo |
+| **Playground SQL** | Editor con `Ctrl+Enter` para ejecutar sobre una **DB SQLite real en tu navegador** (sql.js/WASM, sin backend): 5 tablas relacionadas con datos ficticios de un hospital |
+| **Retos** | 10 desafíos (fácil → difícil) con **validación por result-set**: tu query se compara contra la solución ejecutando ambas en SQLite, no comparando texto. Progreso guardado en localStorage |
+| **Esquema DB** | Explorador de tablas: columnas, PK/NN, conteo de filas, muestras y atajos para consultar cada tabla |
+| **Búsqueda global** | `Ctrl+K` sobre temas, comandos SQL (`GROUP BY`, `COUNT()`…) y keywords, con navegación por teclado |
 
-### Ver en local
+## 🗄️ Base de datos de práctica (`hospital_lab.db`)
 
-Primero nos clonamos el repo:
+Datos ficticios coherentes con los ejemplos del cheatsheet (pacientes, admisiones…):
+
+```
+doctors (8) ──┐
+departments (5) ──┼── admissions (25) ──> patients (20) <── lab_results (30)
+```
+
+Puedes hacer `SELECT`, `JOIN`, `GROUP BY`, window functions… e incluso `CREATE/INSERT/UPDATE/DELETE` (el botón **reset db** restaura el estado inicial).
+
+## 🚀 Uso
+
+### Web directa
+Entra en https://d1se0.github.io/sql-learning/ — no requiere instalación.
+
+### Desarrollo local
 
 ```bash
 git clone https://github.com/D1se0/sql-learning.git
+cd sql-learning/website
+npm install
+npm run dev        # http://localhost:5173
 ```
 
-Para tenerlo en local o por otra parte entrar a la web directamente.
+### Build de producción
 
-### Ver en pagina web
+```bash
+npm run build      # tsc --noEmit + vite build → dist/
+npm run preview
+```
 
-En la parte del repositorio lateral, esta la URL directa a la pagina web directamente
+## 📁 Estructura del repo
 
-URL = [Ir a la web](https://d1se0.github.io/sql-learning/)
+```
+sql-learning/
+├── website/              # app React (Vite + TS + Tailwind + framer-motion)
+│   ├── public/img/       # imágenes del cheatsheet
+│   └── src/
+│       ├── components/   # Home, TopicView, Playground, Challenges, SchemaView, SearchPalette, ui
+│       ├── lib/          # sqlEngine (sql.js), dbSeed, challenges, store (rutas + progreso)
+│       └── data/         # topics.json + search.json (generados)
+├── tools/
+│   ├── extract.mjs       # regenera topics.json/search.json desde legacy/*.html
+│   └── test-db.mjs       # smoke test: valida seed + soluciones de retos con sql.js real
+└── legacy/               # cheatsheet original en HTML puro (conservado como fuente de datos)
+```
 
----
+### Regenerar el contenido desde `legacy/`
 
-## ✨ Contribuciones
+```bash
+cd tools && node extract.mjs && node test-db.mjs
+```
 
-Este proyecto está abierto a mejoras, sugerencias y correcciones.
-Si encuentras un error o deseas añadir contenido, por favor abre un issue o envía un pull request.
+## 🛠️ Stack
 
----
+- **React 18 + Vite 5 + TypeScript** (strict)
+- **Tailwind CSS 3** — tema dark + rojo heredado de la v1
+- **framer-motion** — animaciones (reveal-on-scroll, paleta, acordeones)
+- **sql.js** — SQLite compilado a WASM corriendo 100% en el navegador
+- **lucide-react** + fuentes self-hosted (Inter + JetBrains Mono)
 
 ## 📄 Licencia
 
-Este proyecto está bajo la licencia MIT.
-
+MIT — ver historial del repo.

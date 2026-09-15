@@ -1,0 +1,543 @@
+[
+ {
+  "id": "abs",
+  "title": "ABS()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "aliases",
+  "title": "Aliases (AS)",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": []
+ },
+ {
+  "id": "alter-table",
+  "title": "ALTER TABLE",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "ALTER TABLE",
+   "modificar tabla"
+  ]
+ },
+ {
+  "id": "any-all",
+  "title": "ANY / ALL",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "ANY",
+   "ALL",
+   "subconsulta"
+  ]
+ },
+ {
+  "id": "auto-increment",
+  "title": "AUTO INCREMENT",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "AUTO_INCREMENT",
+   "AUTOINCREMENT",
+   "id automático"
+  ]
+ },
+ {
+  "id": "avg",
+  "title": "AVG()",
+  "cat": "Funciones",
+  "sub": "Agregación",
+  "kws": [
+   "AVG",
+   "media"
+  ]
+ },
+ {
+  "id": "between",
+  "title": "BETWEEN",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "BETWEEN",
+   "rango"
+  ]
+ },
+ {
+  "id": "case",
+  "title": "CASE",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "CASE",
+   "WHEN",
+   "THEN",
+   "ELSE",
+   "condicional"
+  ]
+ },
+ {
+  "id": "ceil",
+  "title": "CEIL()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "check",
+  "title": "CHECK",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": []
+ },
+ {
+  "id": "concat",
+  "title": "CONCAT()",
+  "cat": "Funciones",
+  "sub": "Cadena",
+  "kws": [
+   "CONCAT",
+   "concatenar"
+  ]
+ },
+ {
+  "id": "constraint",
+  "title": "CONSTRAINTS",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": []
+ },
+ {
+  "id": "count",
+  "title": "COUNT()",
+  "cat": "Funciones",
+  "sub": "Agregación",
+  "kws": [
+   "COUNT",
+   "contar"
+  ]
+ },
+ {
+  "id": "create-table",
+  "title": "CREATE TABLE",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "CREATE TABLE",
+   "crear tabla"
+  ]
+ },
+ {
+  "id": "current_timestamp",
+  "title": "current_timestamp",
+  "cat": "Funciones",
+  "sub": "Fecha",
+  "kws": []
+ },
+ {
+  "id": "datatypes",
+  "title": "Tipos de datos",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": []
+ },
+ {
+  "id": "day",
+  "title": "DAY()",
+  "cat": "Funciones",
+  "sub": "Fecha",
+  "kws": []
+ },
+ {
+  "id": "default",
+  "title": "DEFAULT",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": []
+ },
+ {
+  "id": "delete",
+  "title": "DELETE",
+  "cat": "Básicas",
+  "sub": "Statements",
+  "kws": [
+   "DELETE FROM",
+   "borrar filas"
+  ]
+ },
+ {
+  "id": "distinct",
+  "title": "DISTINCT",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "DISTINCT",
+   "únicos"
+  ]
+ },
+ {
+  "id": "drop-table",
+  "title": "DROP TABLE",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "DROP TABLE",
+   "borrar tabla"
+  ]
+ },
+ {
+  "id": "exists",
+  "title": "EXISTS",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "EXISTS",
+   "subconsulta"
+  ]
+ },
+ {
+  "id": "first-value",
+  "title": "FIRST_VALUE()",
+  "cat": "Funciones",
+  "sub": "Window",
+  "kws": [
+   "FIRST_VALUE",
+   "primer valor"
+  ]
+ },
+ {
+  "id": "floor",
+  "title": "FLOOR()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "foreign-key",
+  "title": "FOREIGN KEY",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "FOREIGN KEY",
+   "clave foránea"
+  ]
+ },
+ {
+  "id": "group-by",
+  "title": "GROUP BY",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "GROUP BY",
+   "agrupar"
+  ]
+ },
+ {
+  "id": "having",
+  "title": "HAVING",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "HAVING",
+   "filtro grupos"
+  ]
+ },
+ {
+  "id": "ifnull",
+  "title": "IFNULL()",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": []
+ },
+ {
+  "id": "in",
+  "title": "IN",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "IN",
+   "lista valores"
+  ]
+ },
+ {
+  "id": "index-sql",
+  "title": "INDEX",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "INDEX",
+   "índice",
+   "rendimiento"
+  ]
+ },
+ {
+  "id": "insert",
+  "title": "INSERT",
+  "cat": "Básicas",
+  "sub": "Statements",
+  "kws": [
+   "INSERT INTO",
+   "VALUES",
+   "añadir filas"
+  ]
+ },
+ {
+  "id": "join",
+  "title": "JOIN",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "JOIN",
+   "INNER",
+   "LEFT",
+   "ON",
+   "unir tablas"
+  ]
+ },
+ {
+  "id": "lag",
+  "title": "LAG()",
+  "cat": "Funciones",
+  "sub": "Window",
+  "kws": [
+   "LAG",
+   "fila anterior"
+  ]
+ },
+ {
+  "id": "last-value",
+  "title": "LAST_VALUE()",
+  "cat": "Funciones",
+  "sub": "Window",
+  "kws": [
+   "LAST_VALUE",
+   "último valor"
+  ]
+ },
+ {
+  "id": "lead",
+  "title": "LEAD()",
+  "cat": "Funciones",
+  "sub": "Window",
+  "kws": [
+   "LEAD",
+   "fila siguiente"
+  ]
+ },
+ {
+  "id": "len",
+  "title": "LEN()",
+  "cat": "Funciones",
+  "sub": "Cadena",
+  "kws": []
+ },
+ {
+  "id": "like",
+  "title": "LIKE",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "LIKE",
+   "%",
+   "_",
+   "patrón"
+  ]
+ },
+ {
+  "id": "lower",
+  "title": "LOWER()",
+  "cat": "Funciones",
+  "sub": "Cadena",
+  "kws": []
+ },
+ {
+  "id": "max",
+  "title": "MAX()",
+  "cat": "Funciones",
+  "sub": "Agregación",
+  "kws": [
+   "MAX",
+   "máximo"
+  ]
+ },
+ {
+  "id": "min",
+  "title": "MIN()",
+  "cat": "Funciones",
+  "sub": "Agregación",
+  "kws": [
+   "MIN",
+   "mínimo"
+  ]
+ },
+ {
+  "id": "month",
+  "title": "MONTH()",
+  "cat": "Funciones",
+  "sub": "Fecha",
+  "kws": []
+ },
+ {
+  "id": "not-null",
+  "title": "NOT NULL",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": []
+ },
+ {
+  "id": "null-values",
+  "title": "Valores NULL",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": []
+ },
+ {
+  "id": "operators",
+  "title": "Operadores",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": []
+ },
+ {
+  "id": "order-by",
+  "title": "ORDER BY",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "ORDER BY",
+   "ASC",
+   "DESC",
+   "ordenar"
+  ]
+ },
+ {
+  "id": "power",
+  "title": "POWER()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "primary-key",
+  "title": "PRIMARY KEY",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": [
+   "PRIMARY KEY",
+   "clave primaria"
+  ]
+ },
+ {
+  "id": "rand",
+  "title": "RAND()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "round",
+  "title": "ROUND()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "select",
+  "title": "SELECT",
+  "cat": "Básicas",
+  "sub": "Statements",
+  "kws": [
+   "SELECT",
+   "FROM",
+   "result-set",
+   "consultar"
+  ]
+ },
+ {
+  "id": "sqrt",
+  "title": "SQRT()",
+  "cat": "Funciones",
+  "sub": "Numéricas",
+  "kws": []
+ },
+ {
+  "id": "start",
+  "title": "Introducción a SQL",
+  "cat": "Básicas",
+  "sub": "Statements",
+  "kws": []
+ },
+ {
+  "id": "sum",
+  "title": "SUM()",
+  "cat": "Funciones",
+  "sub": "Agregación",
+  "kws": [
+   "SUM",
+   "suma"
+  ]
+ },
+ {
+  "id": "union",
+  "title": "UNION",
+  "cat": "Filtrado",
+  "sub": "Cláusulas",
+  "kws": [
+   "UNION",
+   "UNION ALL",
+   "combinar"
+  ]
+ },
+ {
+  "id": "unique",
+  "title": "UNIQUE",
+  "cat": "Tablas",
+  "sub": "DDL & Constraints",
+  "kws": []
+ },
+ {
+  "id": "update",
+  "title": "UPDATE",
+  "cat": "Básicas",
+  "sub": "Statements",
+  "kws": [
+   "UPDATE",
+   "SET",
+   "modificar"
+  ]
+ },
+ {
+  "id": "upper",
+  "title": "UPPER()",
+  "cat": "Funciones",
+  "sub": "Cadena",
+  "kws": []
+ },
+ {
+  "id": "where",
+  "title": "WHERE",
+  "cat": "Básicas",
+  "sub": "Statements",
+  "kws": [
+   "WHERE",
+   "filtro",
+   "condición"
+  ]
+ },
+ {
+  "id": "window-function-basic",
+  "title": "Window Functions",
+  "cat": "Funciones",
+  "sub": "Window",
+  "kws": []
+ },
+ {
+  "id": "year",
+  "title": "YEAR()",
+  "cat": "Funciones",
+  "sub": "Fecha",
+  "kws": []
+ }
+]
