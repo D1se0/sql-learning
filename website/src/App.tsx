@@ -4,7 +4,7 @@ import {
   ChevronRight, Database, Github, LayoutDashboard, Menu, Search,
   Sparkles, Table2, Terminal, X
 } from 'lucide-react'
-import { SEARCH, TOPICS } from './data'
+import { SEARCH, TOPICS, type Topic } from './data'
 import { navigate, useRoute, consumePendingSql, type Route } from './lib/store'
 import { initEngine } from './lib/sqlEngine'
 import { SearchPalette, type SearchItem } from './components/SearchPalette'
@@ -13,6 +13,61 @@ import { TopicView } from './components/TopicView'
 import { Playground } from './components/Playground'
 import { Challenges } from './components/Challenges'
 import { SchemaView } from './components/SchemaView'
+
+/* ---------- enlaces del sidebar ---------- */
+function TopicLink({ t, route, go }: { t: Topic; route: Route; go: (r: Route) => void }) {
+  const active = route.view === 'topic' && route.id === t.id
+  return (
+    <button
+      onClick={() => go({ view: 'topic', id: t.id })}
+      className={`w-full text-left px-3 py-1.5 rounded-md font-mono text-xs transition-colors ${
+        active ? 'text-accent bg-accent/10' : 'text-grey hover:text-ink hover:bg-card/60'
+      }`}
+    >
+      {t.title}
+    </button>
+  )
+}
+
+function SubGroup({ label, topics, route, go }: {
+  label: string
+  topics: Topic[]
+  route: Route
+  go: (r: Route) => void
+}) {
+  const activeInside = route.view === 'topic' && topics.some(t => t.id === route.id)
+  const [open, setOpen] = useState(activeInside)
+  return (
+    <div>
+      <button
+        onClick={() => setOpen(o => !o)}
+        className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-md font-mono text-xs transition-colors ${
+          activeInside ? 'text-ink' : 'text-grey hover:text-ink'
+        }`}
+      >
+        <ChevronRight className={`w-3 h-3 transition-transform ${open ? 'rotate-90' : ''}`} />
+        {label}
+        <span className="ml-auto text-[10px] text-grey/50">{topics.length}</span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="pl-4 py-0.5 space-y-0.5">
+              {topics.map(t => (
+                <TopicLink key={t.id} t={t} route={route} go={go} />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )}
 
 /* ---------- índice de búsqueda global ---------- */
 function buildSearchIndex(): SearchItem[] {
@@ -106,6 +161,14 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
           {CAT_ORDER.map(cat => {
             const topics = groups.get(cat) ?? []
             const open = openCats.has(cat)
+            // subgrupos solo para "Funciones" (Agregación, Window, Cadena, Numéricas, Fecha), como el original
+            const subgroups = new Map<string, typeof TOPICS>()
+            for (const t of topics) {
+              const s = cat === 'Funciones' ? t.sub : ''
+              if (!subgroups.has(s)) subgroups.set(s, [])
+              subgroups.get(s)!.push(t)
+            }
+            const hasSubs = cat === 'Funciones'
             return (
               <div key={cat} className="mb-1.5">
                 <button
@@ -128,20 +191,11 @@ function Sidebar({ route, onNavigate, mobileOpen, onCloseMobile }: {
                       className="overflow-hidden"
                     >
                       <div className="pl-4 py-1 space-y-0.5">
-                        {topics.map(t => {
-                          const active = route.view === 'topic' && route.id === t.id
-                          return (
-                            <button
-                              key={t.id}
-                              onClick={() => go({ view: 'topic', id: t.id })}
-                              className={`w-full text-left px-3 py-1.5 rounded-md font-mono text-xs transition-colors ${
-                                active ? 'text-accent bg-accent/10' : 'text-grey hover:text-ink hover:bg-card/60'
-                              }`}
-                            >
-                              {t.title}
-                            </button>
-                          )
-                        })}
+                        {hasSubs
+                          ? [...subgroups.entries()].map(([sub, ts]) => (
+                              <SubGroup key={sub} label={sub} topics={ts} route={route} go={go} />
+                            ))
+                          : topics.map(t => <TopicLink key={t.id} t={t} route={route} go={go} />)}
                       </div>
                     </motion.div>
                   )}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Award, CheckCircle2, Eye, EyeOff, Lightbulb, Play, RotateCcw, XCircle } from 'lucide-react'
 import { CHALLENGES, checkChallenge, type Challenge } from '../lib/challenges'
@@ -139,7 +139,17 @@ function ChallengeCard({ ch, index, solved, onSolved }: {
 export function Challenges() {
   const [solved, setSolved] = useState<Set<string>>(getSolved())
   const [level, setLevel] = useState<'all' | Challenge['level']>('all')
-  const ready = isReady()
+  // esperar al motor (importante en deep-link directo a #/challenges)
+  const [ready, setReady] = useState(isReady())
+  useEffect(() => {
+    let alive = true
+    initEngine().then(() => {
+      if (alive) setReady(true)
+    })
+    return () => {
+      alive = false
+    }
+  }, [])
 
   const list = useMemo(
     () => CHALLENGES.filter(c => level === 'all' || c.level === level),

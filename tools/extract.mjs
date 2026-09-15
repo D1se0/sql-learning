@@ -96,7 +96,22 @@ const KEYWORDS = (base) => {
   return map[base] || []
 }
 
-const root = repoRoot
+// orden original del sidebar (main v1) — topics.json lo respeta
+const ORDER = [
+  'start',
+  'select', 'insert', 'delete', 'update', 'where',
+  'operators', 'order-by', 'like', 'in', 'between', 'join', 'union', 'group-by', 'having', 'case', 'distinct', 'exists', 'any-all', 'ifnull', 'null-values', 'aliases',
+  'count', 'avg', 'sum', 'max', 'min',
+  'window-function-basic', 'lag', 'lead', 'first-value', 'last-value',
+  'concat', 'len', 'upper', 'lower',
+  'rand', 'round', 'floor', 'ceil', 'abs', 'power', 'sqrt',
+  'current_timestamp', 'year', 'month', 'day',
+  'datatypes', 'create-table', 'drop-table', 'alter-table', 'constraint', 'not-null', 'unique', 'primary-key', 'foreign-key', 'check', 'default', 'auto-increment', 'index-sql'
+]
+
+// fuente: los HTML originales viven en legacy/ (desde v2); si no, en la raíz (main)
+const legacyDir = path.join(repoRoot, 'legacy')
+const root = fs.existsSync(legacyDir) ? legacyDir : repoRoot
 const files = fs.readdirSync(root).filter(f => f.endsWith('.html') && f !== 'index.html')
 const topics = []
 const search = []
@@ -153,6 +168,13 @@ for (const file of files.sort()) {
   topics.push({ id: base, title, cat, sub, blocks })
   search.push({ id: base, title, cat, sub, kws })
 }
+
+// reordenar según el sidebar original antes de escribir
+topics.sort((a, b) => {
+  const ia = ORDER.indexOf(a.id)
+  const ib = ORDER.indexOf(b.id)
+  return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib)
+})
 
 fs.writeFileSync(path.join(outData, 'topics.json'), JSON.stringify(topics, null, 1))
 fs.writeFileSync(path.join(outData, 'search.json'), JSON.stringify(search, null, 1))

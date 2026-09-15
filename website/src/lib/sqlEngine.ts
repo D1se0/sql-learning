@@ -12,7 +12,8 @@ export type QueryResult = {
   error?: string
 }
 
-const WASM_BASE = 'https://sql.js.org/dist/'
+// WASM auto-hospedado (public/sqljs/) — sin depender de CDNs externos
+const WASM_BASE = `${import.meta.env.BASE_URL}sqljs/`
 
 export async function initEngine(): Promise<void> {
   if (db) return
