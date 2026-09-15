@@ -1,8 +1,10 @@
 name: Deploy website a GitHub Pages
 
 on:
-  # Solo manual: el sitio de producción (main) es la página original;
-  # la v2 (React) se despliega ejecutando este workflow en la rama v2.
+  # La v2 (React) es el sitio público: se despliega con cada push a esta rama
+  # o manualmente desde Actions -> Run workflow (branch: v2).
+  push:
+    branches: [v2]
   workflow_dispatch:
 
 permissions:
